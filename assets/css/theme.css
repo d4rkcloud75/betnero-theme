@@ -1,0 +1,103 @@
+/* Betnero: stili del tema a blocchi */
+
+/* Header */
+.bn-header { position: sticky; top: 0; z-index: 50; }
+.admin-bar .bn-header { top: 32px; }
+@media (max-width: 782px) { .admin-bar .bn-header { top: 46px; } }
+.bn-header .wp-block-site-logo img { height: auto; }
+.bn-nav .wp-block-navigation__submenu-container {
+	border: 1px solid var(--wp--preset--color--line) !important;
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(16, 24, 40, .08);
+	padding: 6px 0;
+	min-width: 230px !important;
+}
+.bn-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content { padding: 8px 16px; }
+.bn-nav .wp-block-navigation-item__content:hover { color: var(--wp--preset--color--primary); }
+.bn-nav .wp-block-navigation-item a[href*="casino-risk-calculator"] { color: #E8590C; }
+
+/* Hero */
+.bn-hero .wp-block-post-title { margin: 0; }
+.bn-meta a { color: inherit; }
+.bn-meta > * + *::before { content: "·"; margin-right: 14px; }
+
+/* Breadcrumb Yoast */
+.bn-main #breadcrumbs, .bn-main .yoast-breadcrumbs { font-size: var(--wp--preset--font-size--small); color: var(--wp--preset--color--muted); margin: 0 0 12px; }
+.bn-main #breadcrumbs a { font-weight: 600; }
+
+/* Contenuto articolo */
+.bn-post-content { font-size: 15px; line-height: 1.65; }
+.bn-post-content img { border-radius: 8px; height: auto; }
+.bn-post-content table { width: 100%; border-collapse: collapse; }
+.bn-post-content table td, .bn-post-content table th { border: 1px solid var(--wp--preset--color--line); padding: 8px 10px; text-align: center; }
+.bn-post-content table th, .bn-post-content table thead td { background: var(--wp--preset--color--surface); font-weight: 700; }
+
+/* Navigazione articoli */
+.bn-content-col .post-navigation-link-previous,
+.bn-content-col .post-navigation-link-next { font-size: var(--wp--preset--font-size--small); }
+
+/* Box autore */
+.bn-author-box { border-radius: 10px; margin-top: 24px; }
+.bn-author-box .wp-block-post-author__name { font-weight: 700; color: var(--wp--preset--color--primary); }
+.bn-author-box .wp-block-post-author__bio { font-size: var(--wp--preset--font-size--small); color: var(--wp--preset--color--muted); }
+
+/* Sidebar */
+.bn-sidebar-col { position: relative; }
+@media (min-width: 782px) { .bn-sidebar { position: sticky; top: 90px; } }
+
+/* Card archivio */
+.bn-card { overflow: hidden; height: 100%; }
+.bn-card .wp-block-post-featured-image { margin: 0; }
+.bn-card .wp-block-post-title a { color: var(--wp--preset--color--ink); text-decoration: none; }
+.bn-card .wp-block-post-title a:hover { color: var(--wp--preset--color--primary); }
+.bn-card .wp-block-post-terms a { text-decoration: none; font-weight: 600; }
+
+/* Footer */
+.bn-footer h3 { margin: 0 0 10px; }
+.bn-footer-list { list-style: none; padding: 0; margin: 0; font-size: var(--wp--preset--font-size--small); }
+.bn-footer-list li { margin: 0 0 6px; }
+.bn-footer-list a, .bn-footer-nav a { color: var(--wp--preset--color--text); text-decoration: none; }
+.bn-footer-list a:hover, .bn-footer-nav a:hover { color: var(--wp--preset--color--primary); }
+
+/* Mobile */
+.bn-content-col, .bn-post-content { min-width: 0; }
+.bn-post-content img { max-width: 100%; height: auto; }
+@media (max-width: 781px) {
+	.bn-layout { flex-direction: row !important; flex-wrap: wrap !important; }
+	.bn-layout > .wp-block-column,
+	.bn-hero .wp-block-columns > .wp-block-column { flex-basis: 100% !important; min-width: 0; width: 100%; }
+	.bn-hero .wp-block-columns { gap: 16px; }
+	.bn-meta > * + *::before { display: none; }
+}
+
+/* Ricerca nell'header */
+.bn-search .wp-block-search__button { background: var(--wp--preset--color--primary); color: #fff; border-radius: 999px; padding: 8px; }
+.bn-search .wp-block-search__button svg { fill: currentColor; width: 20px; height: 20px; }
+.bn-search .wp-block-search__input { border-radius: 999px; border: 1px solid var(--wp--preset--color--line); }
+
+/* Il kit Elementor mette gli H1 in maiuscolo: nei titoli del tema li vogliamo normali */
+.bn-hero .wp-block-post-title, .bn-hero .wp-block-query-title, .bn-hero h1 { text-transform: none; }
+
+/* Home */
+.bn-home-hero h1 { margin: 0 0 14px; text-transform: none; }
+.bn-faq-details { background: rgba(255,255,255,.12); border-radius: 10px; padding: 12px 16px; color: #fff; }
+.bn-faq-details summary { cursor: pointer; font-weight: 700; }
+.bn-faq-details p { color: #fff; margin: 10px 0 0; font-size: 15px; }
+.bn-info-row { margin-bottom: 18px !important; }
+.bn-info-card { background: #fff; border: 1px solid var(--wp--preset--color--line); border-radius: 12px; padding: 18px 20px; height: 100%; }
+.bn-info-card h3 { margin-top: 0; }
+.bn-testimonial { gap: 16px; background: var(--wp--preset--color--surface); border-radius: 12px; padding: 16px; margin-bottom: 24px; }
+.bn-testimonial .wp-block-image { margin: 0; flex: 0 0 72px; }
+.bn-testimonial img { border-radius: 50%; }
+.bn-quote { border-left: 0; margin: 0; padding: 0; font-style: italic; color: var(--wp--preset--color--ink); }
+.bn-quote p { font-size: 16px; margin: 0 0 6px; }
+.bn-quote cite { font-style: normal; font-weight: 700; font-size: 13px; }
+.bn-two-cols { gap: 40px; }
+.bn-cards .wp-block-post-title { margin: 0; line-height: 1.3; }
+
+.bn-home-hero h1 { color: #fff !important; text-transform: none !important; }
+.bn-card .wp-block-post-featured-image, .bn-card .wp-block-post-featured-image a { display: block; width: 100%; }
+.bn-card .wp-block-post-featured-image img { width: 100% !important; height: 100% !important; object-fit: cover; }
+
+/* Le card non devono prendere il padding automatico dei gruppi con sfondo */
+.wp-block-group.bn-card { padding: 0 0 16px !important; }
