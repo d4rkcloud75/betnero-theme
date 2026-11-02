@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.5.2
+- Home: titolo e sottotitolo della hero a tutta larghezza, centrati, tutti bianchi e con il titolo più piccolo; sotto restano FAQ e numeri a sinistra e podio a destra.
+- Sfumatura della hero più scura (dal blu del logo al blu notte).
+
 ## 0.5.1
 - Home: hero centrata nella pagina (prima era allineata a sinistra).
 - Pulsanti pieni con testo bianco anche dove il reset del vecchio tema colorava i link (es. "Apri il calcolatore").

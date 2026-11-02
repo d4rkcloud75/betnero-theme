@@ -23,7 +23,7 @@
 				{ "slug": "white", "name": "Bianco", "color": "#FFFFFF" }
 			],
 			"gradients": [
-				{ "slug": "hero", "name": "Hero blu Betnero", "gradient": "linear-gradient(225deg,#7CC2EC 0%,#3C95D1 42%,#2577B3 75%,#1A5F94 100%)" }
+				{ "slug": "hero", "name": "Hero blu Betnero", "gradient": "linear-gradient(225deg,#3C95D1 0%,#2A7DBA 38%,#1C6399 72%,#12497A 100%)" }
 			]
 		},
 		"typography": {

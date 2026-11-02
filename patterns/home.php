@@ -9,16 +9,16 @@
 ?>
 <!-- wp:group {"className":"bn-hh","align":"full","style":{"spacing":{"padding":{"top":"64px","bottom":"72px","left":"20px","right":"20px"}}},"gradient":"hero","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group bn-hh alignfull has-hero-gradient-background has-background" style="padding-top:64px;padding-right:20px;padding-bottom:72px;padding-left:20px">
+<!-- wp:heading {"textAlign":"center","level":1,"className":"bn-hh-title"} -->
+<h1 class="wp-block-heading has-text-align-center bn-hh-title">Casinò e bookmaker ADM, confrontati da chi ci ha giocato.</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center","className":"bn-hh-lead"} -->
+<p class="has-text-align-center bn-hh-lead">Guida indipendente al gioco online legale in Italia: solo operatori con concessione ADM, provati con soldi veri.</p>
+<!-- /wp:paragraph -->
 <!-- wp:columns {"className":"bn-hh-cols"} -->
 <div class="wp-block-columns bn-hh-cols">
 <!-- wp:column {"width":"58%"} -->
 <div class="wp-block-column" style="flex-basis:58%">
-<!-- wp:heading {"level":1,"className":"bn-hh-title"} -->
-<h1 class="wp-block-heading bn-hh-title">Casinò e bookmaker ADM, <em>confrontati da chi ci ha giocato.</em></h1>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"bn-hh-lead"} -->
-<p class="bn-hh-lead">Guida indipendente al gioco online legale in Italia: solo operatori con concessione ADM, provati con soldi veri.</p>
-<!-- /wp:paragraph -->
 <!-- wp:group {"className":"bn-hh-faq","layout":{"type":"default"}} -->
 <div class="wp-block-group bn-hh-faq">
 <!-- wp:details {"showContent":true,"className":"is-style-bn-faq"} -->
