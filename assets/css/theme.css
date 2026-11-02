@@ -236,7 +236,7 @@
 /* 0.5.3: podio allineato in alto con le FAQ; numeri in una riga unica sotto, a tutta larghezza */
 .bn-hh-cols { align-items: flex-start !important; }
 .bn-hh-faq { margin-bottom: 0 !important; }
-.bn-hh .bnn { max-width: none; margin-top: 40px !important; grid-template-columns: repeat(4, auto); justify-content: space-between; column-gap: 32px; }
+.bn-hh .bnn { max-width: 1200px; margin-left: auto !important; margin-right: auto !important; margin-top: 40px !important; grid-template-columns: repeat(4, auto); justify-content: space-between; column-gap: 32px; }
 .bn-hh .bnn-item { display: flex; align-items: baseline; gap: 10px; }
 .bn-hh .bnn-item span { margin-top: 0; white-space: nowrap; font-size: 14px; }
 @media (max-width: 900px) {

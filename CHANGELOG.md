@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.5.4
+- Home: la riga dei numeri resta dentro i margini della pagina (larga quanto FAQ e podio).
+
 ## 0.5.3
 - Home: podio allineato in alto con le FAQ; i numeri del sito in una riga unica sotto FAQ e podio, a tutta larghezza (su mobile due per riga).
 
