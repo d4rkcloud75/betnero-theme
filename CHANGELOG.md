@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.5.3
+- Home: podio allineato in alto con le FAQ; i numeri del sito in una riga unica sotto FAQ e podio, a tutta larghezza (su mobile due per riga).
+
 ## 0.5.2
 - Home: titolo e sottotitolo della hero a tutta larghezza, centrati, tutti bianchi e con il titolo più piccolo; sotto restano FAQ e numeri a sinistra e podio a destra.
 - Sfumatura della hero più scura (dal blu del logo al blu notte).

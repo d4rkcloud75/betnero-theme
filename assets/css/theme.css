@@ -232,3 +232,15 @@
 .bn-hh .bn-hh-lead { max-width: 760px; margin: 0 auto 40px !important; text-align: center; opacity: .92; }
 .bn-hh::before { background: radial-gradient(700px 420px at 92% -10%, rgba(255,255,255,.12), transparent 60%); }
 @media (max-width: 781px) { .bn-hh .bn-hh-lead { margin-bottom: 28px !important; } }
+
+/* 0.5.3: podio allineato in alto con le FAQ; numeri in una riga unica sotto, a tutta larghezza */
+.bn-hh-cols { align-items: flex-start !important; }
+.bn-hh-faq { margin-bottom: 0 !important; }
+.bn-hh .bnn { max-width: none; margin-top: 40px !important; grid-template-columns: repeat(4, auto); justify-content: space-between; column-gap: 32px; }
+.bn-hh .bnn-item { display: flex; align-items: baseline; gap: 10px; }
+.bn-hh .bnn-item span { margin-top: 0; white-space: nowrap; font-size: 14px; }
+@media (max-width: 900px) {
+	.bn-hh .bnn { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+	.bn-hh .bnn-item { display: block; }
+	.bn-hh .bnn-item span { white-space: normal; margin-top: 6px; }
+}

@@ -48,7 +48,6 @@
 <!-- /wp:details -->
 </div>
 <!-- /wp:group -->
-<!-- wp:betnero/numeri /-->
 </div>
 <!-- /wp:column -->
 <!-- wp:column {"width":"42%"} -->
@@ -58,6 +57,7 @@
 <!-- /wp:column -->
 </div>
 <!-- /wp:columns -->
+<!-- wp:betnero/numeri /-->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"bn-sec","layout":{"type":"default"}} -->
