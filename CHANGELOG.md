@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.5.1
+- Home: hero centrata nella pagina (prima era allineata a sinistra).
+- Pulsanti pieni con testo bianco anche dove il reset del vecchio tema colorava i link (es. "Apri il calcolatore").
+
 ## 0.5.0
 - Colore principale: il blu del logo (#3C95D1), con un blu più scuro per i link (#226FA6) e per il passaggio del mouse (#2F7FB6). Nuovi colori "Inchiostro" (#0A1222) e "Blu per testi".
 - Nuova home (pattern "Home Betnero"): hero con sfumatura dal blu chiaro al blu scuro, FAQ, numeri del sito e podio; classifica a schede; metodologia; ultimi pronostici; fascia del Calcolatore di Rischio; blog; Academy; gioco responsabile. Usa i blocchi di Betnero Core 0.2.0.
