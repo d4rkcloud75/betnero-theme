@@ -8,8 +8,10 @@
 			"defaultPalette": false,
 			"defaultGradients": false,
 			"palette": [
-				{ "slug": "primary", "name": "Blu Betnero", "color": "#036AA9" },
-				{ "slug": "accent", "name": "Blu chiaro", "color": "#0380CC" },
+				{ "slug": "primary", "name": "Blu Betnero (logo)", "color": "#3C95D1" },
+				{ "slug": "accent", "name": "Blu scuro", "color": "#2F7FB6" },
+				{ "slug": "primary-text", "name": "Blu per testi", "color": "#226FA6" },
+				{ "slug": "navy", "name": "Inchiostro", "color": "#0A1222" },
 				{ "slug": "orange", "name": "Arancio", "color": "#EEA700" },
 				{ "slug": "green", "name": "Verde", "color": "#389C04" },
 				{ "slug": "ink", "name": "Titoli", "color": "#1D2433" },
@@ -17,11 +19,11 @@
 				{ "slug": "muted", "name": "Testo secondario", "color": "#5D6676" },
 				{ "slug": "line", "name": "Bordi", "color": "#E6E9EF" },
 				{ "slug": "surface", "name": "Sfondo chiaro", "color": "#F4F6F9" },
-				{ "slug": "footer", "name": "Sfondo footer", "color": "#F0ECEC" },
+				{ "slug": "footer", "name": "Sfondo footer", "color": "#0A1222" },
 				{ "slug": "white", "name": "Bianco", "color": "#FFFFFF" }
 			],
 			"gradients": [
-				{ "slug": "hero", "name": "Hero blu", "gradient": "linear-gradient(135deg,#036AA9 0%,#0380CC 100%)" }
+				{ "slug": "hero", "name": "Hero blu Betnero", "gradient": "linear-gradient(225deg,#7CC2EC 0%,#3C95D1 42%,#2577B3 75%,#1A5F94 100%)" }
 			]
 		},
 		"typography": {
@@ -71,7 +73,7 @@
 		},
 		"elements": {
 			"link": {
-				"color": { "text": "var(--wp--preset--color--primary)" },
+				"color": { "text": "var(--wp--preset--color--primary-text)" },
 				":hover": { "color": { "text": "var(--wp--preset--color--accent)" } }
 			},
 			"heading": {

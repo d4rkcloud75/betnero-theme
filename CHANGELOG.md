@@ -1,5 +1,12 @@
 # Changelog tema Betnero
 
+## 0.5.0
+- Colore principale: il blu del logo (#3C95D1), con un blu più scuro per i link (#226FA6) e per il passaggio del mouse (#2F7FB6). Nuovi colori "Inchiostro" (#0A1222) e "Blu per testi".
+- Nuova home (pattern "Home Betnero"): hero con sfumatura dal blu chiaro al blu scuro, FAQ, numeri del sito e podio; classifica a schede; metodologia; ultimi pronostici; fascia del Calcolatore di Rischio; blog; Academy; gioco responsabile. Usa i blocchi di Betnero Core 0.2.0.
+- Footer scuro.
+- Header: "Calcolatore di Rischio" come pulsante con bordo blu.
+- Tag della versione creato in automatico da GitHub Actions a ogni push su main.
+
 ## 0.4.0
 - Con il plugin Betnero Core attivo, i blocchi tabella e toplist li registra il plugin (dati dagli Operatori invece che da JetEngine). Senza plugin il tema funziona come prima.
 - Codice dell'Academy spostato in inc/academy.php.
