@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.4.0
+- Con il plugin Betnero Core attivo, i blocchi tabella e toplist li registra il plugin (dati dagli Operatori invece che da JetEngine). Senza plugin il tema funziona come prima.
+- Codice dell'Academy spostato in inc/academy.php.
+
 ## 0.3.4
 - Aggiunto questo changelog. Prima versione pubblicata con Git Updater.
 

@@ -9,9 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.3.4' );
+define( 'BETNERO_THEME_VERSION', '0.4.0' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
+require_once get_theme_file_path( 'inc/academy.php' );
 
 /**
  * Supporti del tema.
