@@ -1,5 +1,10 @@
 # Changelog tema Betnero
 
+## 0.5.6
+- Corretto un difetto dei colori: il colore della palette "text" generava la classe has-text-color, che WordPress mette su ogni testo colorato, e forzava tutti i testi colorati al grigio #333 (es. titolo bianco della fascia blu negli archivi). Il colore ora si chiama "testo".
+- Nessuno spazio bianco tra l'header e la fascia blu (o il contenuto) che segue.
+- Menu: Academy in evidenza con il pulsante con bordo blu; il Calcolatore di Rischio torna in arancione come nel vecchio sito.
+
 ## 0.5.5
 - FAQ della hero: durante la chiusura animata (Betnero Core 0.2.3) l'icona torna subito da × a +.
 

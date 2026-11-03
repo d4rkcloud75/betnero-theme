@@ -15,7 +15,7 @@
 				{ "slug": "orange", "name": "Arancio", "color": "#EEA700" },
 				{ "slug": "green", "name": "Verde", "color": "#389C04" },
 				{ "slug": "ink", "name": "Titoli", "color": "#1D2433" },
-				{ "slug": "text", "name": "Testo", "color": "#333333" },
+				{ "slug": "testo", "name": "Testo", "color": "#333333" },
 				{ "slug": "muted", "name": "Testo secondario", "color": "#5D6676" },
 				{ "slug": "line", "name": "Bordi", "color": "#E6E9EF" },
 				{ "slug": "surface", "name": "Sfondo chiaro", "color": "#F4F6F9" },
@@ -60,7 +60,7 @@
 	"styles": {
 		"color": {
 			"background": "var(--wp--preset--color--white)",
-			"text": "var(--wp--preset--color--text)"
+			"text": "var(--wp--preset--color--testo)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--sen)",

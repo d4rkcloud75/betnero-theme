@@ -56,7 +56,7 @@
 .bn-footer h3 { margin: 0 0 10px; }
 .bn-footer-list { list-style: none; padding: 0; margin: 0; font-size: var(--wp--preset--font-size--small); }
 .bn-footer-list li { margin: 0 0 6px; }
-.bn-footer-list a, .bn-footer-nav a { color: var(--wp--preset--color--text); text-decoration: none; }
+.bn-footer-list a, .bn-footer-nav a { color: var(--wp--preset--color--testo); text-decoration: none; }
 .bn-footer-list a:hover, .bn-footer-nav a:hover { color: var(--wp--preset--color--primary); }
 
 /* Mobile */
@@ -106,14 +106,16 @@
    Restyling 0.5.0: header, home, footer scuro
    ========================================================== */
 
-/* Header: Calcolatore di Rischio come pulsante con bordo */
-.bn-nav .wp-block-navigation-item a[href*="casino-risk-calculator"] {
+/* Header: Academy in evidenza (pulsante con bordo blu); il Calcolatore di Rischio resta in arancione come nel vecchio sito */
+.bn-nav .wp-block-navigation-item > a[href$="/academy.html"] {
 	color: var(--wp--preset--color--primary-text);
 	border: 1.5px solid var(--wp--preset--color--primary);
+	background: #EAF4FB;
 	border-radius: 12px;
 	padding: 8px 14px;
+	transition: background .2s ease, color .2s ease;
 }
-.bn-nav .wp-block-navigation-item a[href*="casino-risk-calculator"]:hover { background: #EAF4FB; }
+.bn-nav .wp-block-navigation-item > a[href$="/academy.html"]:hover { background: var(--wp--preset--color--primary); color: #fff; }
 
 /* Etichette, intestazioni di sezione, link "vedi tutti" */
 .bn-eyebrow { font-size: 12px !important; line-height: 1 !important; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--wp--preset--color--primary-text); margin: 0 0 10px !important; }
@@ -247,3 +249,6 @@
 
 /* 0.5.5: durante la chiusura animata l'icona della hero torna subito su "+" */
 .bn-hh-faq > .wp-block-details.is-style-bn-faq[open][data-bn-state="closing"] > summary::after { transform: translateY(-50%) rotate(0deg); }
+
+/* 0.5.6: nessuno spazio tra l'header e la fascia (o il contenuto) che segue */
+.wp-site-blocks > header + * { margin-block-start: 0 !important; }
