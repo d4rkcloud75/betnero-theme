@@ -382,3 +382,20 @@
 .bn-hh-compact .bnn-item b { flex: none; }
 .bn-hh-compact .bnn-item span { min-width: 0; }
 .bn-hh-compact + .bn-sec { padding-top: 36px; }
+
+/* 0.6.1: barra icone fissa in basso (mobile) e pulsante "torna su" */
+.bn-mbar { display: none; }
+.bn-totop { position: fixed; right: 16px; bottom: 24px; z-index: 70; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--wp--preset--color--primary); color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 18px rgba(10,40,70,.25); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s ease, transform .25s ease, background .2s ease; }
+.bn-totop.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.bn-totop:hover { background: var(--wp--preset--color--accent); }
+/* Il vecchio popup Elementor della barra icone non serve piu' */
+.elementor-location-popup[data-elementor-id="42604"], #jet-popup-42604, .jet-popup.jet-popup--front-mode:has([data-elementor-id="42604"]) { display: none !important; }
+@media (max-width: 781px) {
+	.bn-mbar { display: grid; grid-template-columns: repeat(6, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; background: #fff; border-top: 1px solid var(--wp--preset--color--line); box-shadow: 0 -4px 16px rgba(10,18,34,.06); padding: 6px 0 calc(6px + env(safe-area-inset-bottom)); }
+	.bn-mbar a { display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--wp--preset--color--ink); font-size: 10.5px; font-weight: 700; line-height: 1.1; }
+	.bn-mbar img { width: 28px; height: 28px; object-fit: contain; }
+	.bn-mbar a[aria-current="page"] { color: var(--wp--preset--color--primary-text); }
+	body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+	.bn-totop { bottom: calc(76px + env(safe-area-inset-bottom)); right: 12px; }
+	.bnb-bar { bottom: calc(62px + env(safe-area-inset-bottom)) !important; }
+}

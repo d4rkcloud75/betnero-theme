@@ -1,5 +1,10 @@
 # Changelog tema Betnero
 
+## 0.6.1
+- Barra icone fissa in basso su mobile (Casino, Live Casino, Slot, Scommesse, Promozioni, Blog) direttamente nel tema, su tutte le pagine; la voce della sezione corrente è evidenziata. Il vecchio popup Elementor/JetPopup della barra viene nascosto.
+- Pulsante "torna su" in basso a destra: compare dopo un po' di scroll e riporta in cima con uno scorrimento morbido.
+- Su mobile la barra "Vai al sito" dell'operatore si appoggia sopra la barra icone.
+
 ## 0.6.0
 - Header sempre fisso in alto (sticky) su desktop e mobile: prima lo sticky era sul gruppo interno e non funzionava.
 - Header mobile: menu a sinistra, logo al centro, cerca a destra; la ricerca si apre in una fascia bianca sotto l'header.

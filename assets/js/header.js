@@ -71,3 +71,33 @@
 		boot();
 	}
 } )();
+
+/* Pulsante "torna su": compare dopo un po' di scroll. */
+( function () {
+	function boot() {
+		var b = document.querySelector( '.bn-totop' );
+		if ( ! b ) {
+			return;
+		}
+		var shown = false;
+		function upd() {
+			var on = window.scrollY > 600;
+			if ( on !== shown ) {
+				shown = on;
+				b.hidden = false;
+				b.classList.toggle( 'is-on', on );
+			}
+		}
+		window.addEventListener( 'scroll', upd, { passive: true } );
+		upd();
+		b.addEventListener( 'click', function () {
+			var reduce = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+			window.scrollTo( { top: 0, behavior: reduce ? 'auto' : 'smooth' } );
+		} );
+	}
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', boot );
+	} else {
+		boot();
+	}
+} )();
