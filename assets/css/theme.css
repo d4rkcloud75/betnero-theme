@@ -283,3 +283,35 @@
 	.bn-ph-cols > .wp-block-column { flex-basis: 100% !important; }
 	.bn-ph .wp-block-image img { max-height: 200px; }
 }
+
+/* 0.5.9: articolo largo quanto tabelle e classifica */
+.bn-article.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) { max-width: 1200px !important; }
+
+/* 0.5.9: Academy con piu' spazio interno */
+.bn-nav .wp-block-navigation-item > a[href$="/academy.html"] { padding: 10px 20px; }
+
+/* 0.5.9: ricerca sopra l'header, senza spostare il menu; pulsante x per chiudere */
+.bn-search { position: relative; }
+.bn-search .wp-block-search__inside-wrapper { position: static; }
+.bn-search.wp-block-search__button-only .wp-block-search__input {
+	position: absolute; top: 50%; right: calc(100% + 8px); transform: translateY(-50%);
+	width: min(380px, 72vw) !important; height: 44px; margin: 0 !important; padding: 0 40px 0 16px !important;
+	background: #fff; border: 1px solid var(--wp--preset--color--line) !important; border-radius: 999px !important;
+	box-shadow: 0 8px 24px rgba(10,18,34,.12); z-index: 5;
+	transition: opacity .2s ease, transform .2s ease;
+}
+.bn-search.wp-block-search__searchfield-hidden .wp-block-search__input { opacity: 0; pointer-events: none; transform: translateY(-50%) translateX(8px); width: min(380px, 72vw) !important; padding: 0 40px 0 16px !important; border-width: 1px !important; }
+.bn-search-close { position: absolute; top: 50%; right: calc(100% + 18px); transform: translateY(-50%); z-index: 6; width: 28px; height: 28px; border: 0; border-radius: 50%; background: var(--wp--preset--color--surface); color: var(--wp--preset--color--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.bn-search-close:hover { background: #E6ECF3; }
+.bn-search.wp-block-search__searchfield-hidden .bn-search-close { display: none; }
+
+/* 0.5.9: menu mobile con sottomenu a tendina */
+.bn-sub-toggle { display: none; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .bn-sub-toggle { display: inline-grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: var(--wp--preset--color--surface); color: var(--wp--preset--color--ink); padding: 0; cursor: pointer; transition: transform .25s ease, background .2s ease; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .bn-sub-open > .bn-sub-toggle { transform: rotate(180deg); background: #EAF4FB; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container { display: none !important; flex-basis: 100%; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.bn-sub-open > .wp-block-navigation__submenu-container { display: flex !important; }
+.bn-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-icon { display: none !important; }
+.bn-search .wp-block-search__input:focus, .bn-search .wp-block-search__input:focus-visible { outline: none !important; border-color: var(--wp--preset--color--primary) !important; box-shadow: 0 0 0 3px rgba(60,149,209,.22), 0 8px 24px rgba(10,18,34,.12) !important; }
+.bn-nav .wp-block-navigation-item > a.wp-block-navigation-item__content[href$="/academy.html"] { padding: 10px 20px !important; }

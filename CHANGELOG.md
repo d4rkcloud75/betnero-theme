@@ -1,5 +1,12 @@
 # Changelog tema Betnero
 
+## 0.5.9
+- Pagine convertite: articolo largo quanto tabelle e classifica (1200 px).
+- Ricerca nell'header: il campo si apre sopra l'header senza spostare il menu (prima lo spingeva a sinistra e alla chiusura scivolava indietro); pulsante x per chiuderlo; bordo blu al posto del contorno nero.
+- Menu mobile: sottomenu chiusi, si aprono a tendina con la freccia.
+- Academy nel menu con più spazio interno.
+- Nuovo script assets/js/header.js, escluso dal ritardo di Velox Optimizer.
+
 ## 0.5.8
 - Guide correlate: immagine delle card intera, non più tagliata.
 
