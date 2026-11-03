@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.5.7
+- Stili per le pagine convertite da Elementor: fascia in alto con sfumatura blu, titolo e testo bianchi e immagine a destra (.bn-ph); articolo con larghezza di lettura, titoli e tabelle nello stile Betnero (.bn-article); card delle guide correlate (.bn-related).
+
 ## 0.5.6
 - Corretto un difetto dei colori: il colore della palette "text" generava la classe has-text-color, che WordPress mette su ogni testo colorato, e forzava tutti i testi colorati al grigio #333 (es. titolo bianco della fascia blu negli archivi). Il colore ora si chiama "testo".
 - Nessuno spazio bianco tra l'header e la fascia blu (o il contenuto) che segue.
