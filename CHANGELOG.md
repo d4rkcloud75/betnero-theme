@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.5.8
+- Guide correlate: immagine delle card intera, non più tagliata.
+
 ## 0.5.7
 - Stili per le pagine convertite da Elementor: fascia in alto con sfumatura blu, titolo e testo bianchi e immagine a destra (.bn-ph); articolo con larghezza di lettura, titoli e tabelle nello stile Betnero (.bn-article); card delle guide correlate (.bn-related).
 
