@@ -1,5 +1,10 @@
 # Changelog tema Betnero
 
+## 0.6.0
+- Header sempre fisso in alto (sticky) su desktop e mobile: prima lo sticky era sul gruppo interno e non funzionava.
+- Header mobile: menu a sinistra, logo al centro, cerca a destra; la ricerca si apre in una fascia bianca sotto l'header.
+- Home: hero compatta come in produzione. Titolo più piccolo e a sinistra, una sola riga chiusa "Le domande più frequenti sui siti di gioco online" che contiene le 5 FAQ, numeri su una riga, podio ridotto (nascosto su mobile). Pattern "Home Betnero" aggiornato.
+
 ## 0.5.9
 - Pagine convertite: articolo largo quanto tabelle e classifica (1200 px).
 - Ricerca nell'header: il campo si apre sopra l'header senza spostare il menu (prima lo spingeva a sinistra e alla chiusura scivolava indietro); pulsante x per chiuderlo; bordo blu al posto del contorno nero.

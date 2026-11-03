@@ -3,63 +3,64 @@
  * Title: Home Betnero
  * Slug: betnero/home
  * Categories: betnero
- * Description: Home page a blocchi (restyling 0.5.0): hero blu con FAQ, numeri e podio, classifica a schede, metodologia, pronostici, Calcolatore di Rischio, blog, Academy e gioco responsabile.
+ * Description: Home page a blocchi (restyling 0.6.0): hero blu compatta con FAQ in un cassetto, numeri e podio, classifica a schede, metodologia, pronostici, Calcolatore di Rischio, blog, Academy e gioco responsabile.
  * Viewport Width: 1280
  */
 ?>
-<!-- wp:group {"className":"bn-hh","align":"full","style":{"spacing":{"padding":{"top":"64px","bottom":"72px","left":"20px","right":"20px"}}},"gradient":"hero","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group bn-hh alignfull has-hero-gradient-background has-background" style="padding-top:64px;padding-right:20px;padding-bottom:72px;padding-left:20px">
-<!-- wp:heading {"textAlign":"center","level":1,"className":"bn-hh-title"} -->
-<h1 class="wp-block-heading has-text-align-center bn-hh-title">Casinò e bookmaker ADM, confrontati da chi ci ha giocato.</h1>
+<!-- wp:group {"className":"bn-hh bn-hh-compact","align":"full","style":{"spacing":{"padding":{"top":"24px","bottom":"26px","left":"20px","right":"20px"}}},"gradient":"hero","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group bn-hh bn-hh-compact alignfull has-hero-gradient-background has-background" style="padding-top:24px;padding-right:20px;padding-bottom:26px;padding-left:20px"><!-- wp:columns {"className":"bn-hh-cols"} -->
+<div class="wp-block-columns bn-hh-cols"><!-- wp:column {"width":"62%"} -->
+<div class="wp-block-column" style="flex-basis:62%"><!-- wp:heading {"level":1,"className":"bn-hh-title"} -->
+<h1 class="wp-block-heading bn-hh-title">Casinò e bookmaker ADM, confrontati da chi ci ha giocato.</h1>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"align":"center","className":"bn-hh-lead"} -->
-<p class="has-text-align-center bn-hh-lead">Guida indipendente al gioco online legale in Italia: solo operatori con concessione ADM, provati con soldi veri.</p>
+
+<!-- wp:paragraph {"className":"bn-hh-lead"} -->
+<p class="bn-hh-lead">Guida indipendente al gioco online legale in Italia: solo operatori con concessione ADM, provati con soldi veri.</p>
 <!-- /wp:paragraph -->
-<!-- wp:columns {"className":"bn-hh-cols"} -->
-<div class="wp-block-columns bn-hh-cols">
-<!-- wp:column {"width":"58%"} -->
-<div class="wp-block-column" style="flex-basis:58%">
-<!-- wp:group {"className":"bn-hh-faq","layout":{"type":"default"}} -->
-<div class="wp-block-group bn-hh-faq">
-<!-- wp:details {"showContent":true,"className":"is-style-bn-faq"} -->
-<details class="wp-block-details is-style-bn-faq" open><summary>Giocare d’azzardo online in Italia è legale?</summary><!-- wp:paragraph -->
+
+<!-- wp:details {"className":"bn-faqbox"} -->
+<details class="wp-block-details bn-faqbox"><summary>Le domande più frequenti sui siti di gioco online</summary><!-- wp:details {"className":"is-style-bn-faq"} -->
+<details class="wp-block-details is-style-bn-faq"><summary>Giocare d’azzardo online in Italia è legale?</summary><!-- wp:paragraph {"crocoblock_styles":{"_uniqueClassName":"cb-aasf79gt"}} -->
 <p>Sì il gioco online è legale nel nostro paese. Betnero è una guida che sponsorizza solo siti di gioco legali con licenza, certificati dalle Agenzie dei Monopoli di Stato, con regolare bollino ADM. Tutte le tue partite sono registrate dagli enti competenti e ogni transazione bancaria è sicura al 100% e controllata.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
+
 <!-- wp:details {"className":"is-style-bn-faq"} -->
-<details class="wp-block-details is-style-bn-faq"><summary>Devo inviare un documento per giocare in Italia?</summary><!-- wp:paragraph -->
+<details class="wp-block-details is-style-bn-faq"><summary>Devo inviare un documento per giocare in Italia?</summary><!-- wp:paragraph {"crocoblock_styles":{"_uniqueClassName":"cb-h6ym5bk0"}} -->
 <p>Non devi necessariamente inviare un documento per giocare. Puoi farlo anche senza convalidare il tuo conto di gioco, ma solo con i titoli gratuiti con soldi virtuali. Per poter scommettere denaro vero e ritirare le vincite, devi, per legge, inviare un tuo documento valido.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
+
 <!-- wp:details {"className":"is-style-bn-faq"} -->
-<details class="wp-block-details is-style-bn-faq"><summary>Quali sono le offerte più convenienti online?</summary><!-- wp:paragraph -->
+<details class="wp-block-details is-style-bn-faq"><summary>Quali sono le offerte più convenienti online?</summary><!-- wp:paragraph {"crocoblock_styles":{"_uniqueClassName":"cb-kz9md9qm"}} -->
 <p>Il bonus di benvenuto è senza dubbio il più conveniente nel panorama degli incentivi per il gioco d’azzardo online. Oltre a questo, puoi valutare bonus senza deposito che ti permettono di testare i giochi o i bonus sulle scommesse sportive e i bonus multipli.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
+
 <!-- wp:details {"className":"is-style-bn-faq"} -->
-<details class="wp-block-details is-style-bn-faq"><summary>Come si riconosce un sito di gioco legale?</summary><!-- wp:paragraph -->
+<details class="wp-block-details is-style-bn-faq"><summary>Come si riconosce un sito di gioco legale?</summary><!-- wp:paragraph {"crocoblock_styles":{"_uniqueClassName":"cb-da7i6ggn"}} -->
 <p>Lo si riconosce dalla presenza del Logo ADM accompagnato dal numero della licenza rilasciata dai Monopoli di Stato. Generalmente il logo si trova nella parte bassa del sito (footer). È anche possibile verificare con assoluta certezza che un concessionario sia autorizzato al gioco a distanza verificandolo direttamente dal portale delle Agenzie delle Entrate.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
+
 <!-- wp:details {"className":"is-style-bn-faq"} -->
-<details class="wp-block-details is-style-bn-faq"><summary>Quale sito di gioco online mi consigliate per vincere?</summary><!-- wp:paragraph -->
+<details class="wp-block-details is-style-bn-faq"><summary>Quale sito di gioco online mi consigliate per vincere?</summary><!-- wp:paragraph {"crocoblock_styles":{"_uniqueClassName":"cb-yac2k3fz"}} -->
 <p>Ti consigliamo di consultare le nostre classifiche con i siti di gioco più convenienti del momento. Tieni a mente però che la vincita al gioco online non è mai una garanzia ma solo frutto della fortuna.</p>
 <!-- /wp:paragraph --></details>
+<!-- /wp:details --></details>
 <!-- /wp:details -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:column -->
-<!-- wp:column {"width":"42%"} -->
-<div class="wp-block-column" style="flex-basis:42%">
-<!-- wp:betnero/podio /-->
-</div>
-<!-- /wp:column -->
-</div>
-<!-- /wp:columns -->
+
 <!-- wp:betnero/numeri /-->
+
 </div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"38%"} -->
+<div class="wp-block-column" style="flex-basis:38%"><!-- wp:betnero/podio /--></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
 <!-- /wp:group -->
+
 <!-- wp:group {"className":"bn-sec","layout":{"type":"default"}} -->
 <div class="wp-block-group bn-sec">
 <!-- wp:betnero/classifica /-->
