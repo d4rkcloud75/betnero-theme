@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.5.5
+- FAQ della hero: durante la chiusura animata (Betnero Core 0.2.3) l'icona torna subito da × a +.
+
 ## 0.5.4
 - Home: la riga dei numeri resta dentro i margini della pagina (larga quanto FAQ e podio).
 

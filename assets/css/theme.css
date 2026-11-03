@@ -244,3 +244,6 @@
 	.bn-hh .bnn-item { display: block; }
 	.bn-hh .bnn-item span { white-space: normal; margin-top: 6px; }
 }
+
+/* 0.5.5: durante la chiusura animata l'icona della hero torna subito su "+" */
+.bn-hh-faq > .wp-block-details.is-style-bn-faq[open][data-bn-state="closing"] > summary::after { transform: translateY(-50%) rotate(0deg); }
