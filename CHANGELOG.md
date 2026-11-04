@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.6.8
+- Pagine convertite: stili per colonne affiancate (.bn-cols), riquadri colorati (.bn-box), schede autore (.bn-author-card) e testo centrato (.bn-center); immagini ridimensionate come nell'originale.
+- Guide correlate su mobile: schede che scorrono in orizzontale invece di 4 colonne strette.
+
 ## 0.6.7
 - Indice dell'Academy: anche le voci principali con peso normale.
 

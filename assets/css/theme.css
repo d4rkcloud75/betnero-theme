@@ -432,3 +432,27 @@
 .bn-acad-index a { font-weight: 400; }
 .bn-acad-index details ul a { font-weight: 400; }
 .bn-acad-index > ul > li > a, .bn-acad-index summary > a { font-weight: 400 !important; }
+
+/* 0.6.8: pagine convertite con il layout di Elementor (colonne, riquadri, testo centrato) */
+.bn-article .bn-cols { gap: 32px; margin: 24px 0 !important; align-items: center; }
+.bn-article .bn-cols > .wp-block-column > :first-child { margin-top: 0; }
+.bn-article .bn-cols > .wp-block-column > :last-child { margin-bottom: 0; }
+.bn-article .bn-cols .wp-block-image { margin: 0 auto; }
+.bn-article .bn-cols .wp-block-image img { border-radius: 12px; height: auto; max-width: 100%; }
+.bn-article .bn-box { border-radius: 12px; margin: 24px 0 !important; }
+.bn-article .bn-box > :first-child { margin-top: 0; }
+.bn-article .bn-box > :last-child { margin-bottom: 0; }
+.bn-center, .bn-center p, .bn-center li { text-align: center; }
+.bn-article .wp-block-image.is-resized img { max-width: 100%; height: auto; }
+@media (max-width: 781px) {
+	.bn-article .bn-cols { flex-wrap: wrap !important; gap: 18px; }
+	.bn-article .bn-cols > .wp-block-column { flex-basis: 100% !important; }
+	/* Guide correlate su mobile: schede che scorrono in orizzontale */
+	.bn-related .bn-cards2 { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px !important; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+	.bn-related .bn-cards2::-webkit-scrollbar { display: none; }
+	.bn-related .bn-cards2 > .bn-card2 { flex: 0 0 72%; scroll-snap-align: start; }
+	.bn-related h2 { font-size: 24px !important; }
+}
+.bn-article .bn-author-card { background: #F4F5F7; border-left: 4px solid var(--wp--preset--color--primary); padding: 20px 24px !important; }
+.bn-article .bn-author-card h3 { font-size: 19px !important; margin: 0 0 8px !important; }
+.bn-article .bn-author-card p { font-size: 14.5px; }
