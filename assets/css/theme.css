@@ -459,3 +459,6 @@
 .bn-article .bn-author-card { background: #F4F5F7; border-left: 4px solid var(--wp--preset--color--primary); padding: 20px 24px !important; }
 .bn-article .bn-author-card h3 { font-size: 19px !important; margin: 0 0 8px !important; }
 .bn-article .bn-author-card p { font-size: 14.5px; }
+/* Indirizzi web lunghi nel testo: vanno a capo invece di allargare la pagina su mobile */
+.wp-block-post-content :is(p, li, td, th, dd, blockquote) { overflow-wrap: break-word; }
+.wp-block-post-content :is(p, li) a { overflow-wrap: anywhere; }
