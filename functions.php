@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.6.2' );
+define( 'BETNERO_THEME_VERSION', '0.6.3' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/academy.php' );
@@ -120,3 +120,22 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_enqueue_style( 'betnero-legacy-reset', get_theme_root_uri() . '/hello-elementor/assets/css/reset.css', array(), BETNERO_THEME_VERSION );
 	}
 }, 5 );
+
+/*
+ * Calcolatore di Rischio: lo script e' in un file del tema, caricato solo sulla
+ * pagina che contiene il calcolatore (i pulsanti chiamano runCalculation()).
+ */
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! is_singular() ) {
+		return;
+	}
+	$post = get_post();
+	if ( $post && false !== strpos( $post->post_content, 'runCalculation(' ) ) {
+		wp_enqueue_script( 'betnero-risk-calculator', get_theme_file_uri( 'assets/js/risk-calculator.js' ), array(), BETNERO_THEME_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	}
+} );
+add_filter( 'velox_delay_js_extra_exclusions', function ( $list ) {
+	$list   = (array) $list;
+	$list[] = 'assets/js/risk-calculator';
+	return $list;
+} );

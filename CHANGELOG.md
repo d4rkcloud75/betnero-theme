@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.6.3
+- Calcolatore di Rischio: lo script è ora un file del tema (assets/js/risk-calculator.js), caricato solo sulla pagina del calcolatore ed escluso dal ritardo di Velox. In linea nella pagina veniva rovinato dai filtri del contenuto e, sullo staging, era marcato per WP Rocket (che è spento) e non partiva.
+
 ## 0.6.2
 - Barra icone mobile come nel sito originale: non compare sulle recensioni (indice e singole) e sulle pagine dell'Academy; c'è su tutte le altre, home compresa. Filtro betnero_mobile_bar_enabled per cambiarlo.
 - "Torna su" e barra "Vai al sito" si posizionano in base alla presenza della barra icone.
