@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.6.6
+- Sidebar articoli: larga 241 px come in produzione, pulsante "Vai al sito" accanto al logo.
+- Indice dell'Academy: link con peso normale come in produzione.
+
 ## 0.6.5
 - Academy: sidebar "Indice dell'Academy" a sinistra come nel sito originale (stesse voci e sottovoci del menu Academy, sezione corrente aperta, voce corrente evidenziata), fissa durante lo scorrimento, nascosta su tablet e mobile.
 - Articoli: la sidebar non è più fissa, come nell'originale. Il contenuto della sidebar arriva da Betnero Core 0.2.9.

@@ -425,3 +425,9 @@
 	.bn-acad-wrap { grid-template-columns: minmax(0, 1fr); padding: 0 16px; }
 	.bn-acad-side { display: none; }
 }
+
+/* 0.6.6: sidebar come la produzione (colonna stretta, pulsante accanto al logo; indice Academy con link normali) */
+.bns2 { max-width: 241px; }
+.bns2-row { justify-content: flex-start; gap: 24px; }
+.bn-acad-index a { font-weight: 400; }
+.bn-acad-index details ul a { font-weight: 400; }
