@@ -22,11 +22,23 @@ function betnero_mobile_bar_items() {
 	) );
 }
 
+/**
+ * Come nel sito originale: la barra non c'e' sulle recensioni e sulle pagine dell'Academy.
+ */
+function betnero_mobile_bar_enabled( $path ) {
+	$path    = '/' . ltrim( (string) $path, '/' );
+	$enabled = ! preg_match( '#^/(recensioni|academy)(\.html|/|$)#', $path );
+	return (bool) apply_filters( 'betnero_mobile_bar_enabled', $enabled, $path );
+}
+
 add_action( 'wp_footer', function () {
 	if ( is_admin() ) {
 		return;
 	}
 	$req = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) : '';
+	if ( ! betnero_mobile_bar_enabled( $req ) ) {
+		return;
+	}
 	echo '<nav class="bn-mbar" aria-label="Menu rapido">';
 	foreach ( betnero_mobile_bar_items() as $it ) {
 		$cur = ( '' !== $req && 0 === strpos( $req, preg_replace( '/\.html$/', '', $it[1] ) ) ) ? ' aria-current="page"' : '';

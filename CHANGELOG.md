@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.6.2
+- Barra icone mobile come nel sito originale: non compare sulle recensioni (indice e singole) e sulle pagine dell'Academy; c'è su tutte le altre, home compresa. Filtro betnero_mobile_bar_enabled per cambiarlo.
+- "Torna su" e barra "Vai al sito" si posizionano in base alla presenza della barra icone.
+
 ## 0.6.1
 - Barra icone fissa in basso su mobile (Casino, Live Casino, Slot, Scommesse, Promozioni, Blog) direttamente nel tema, su tutte le pagine; la voce della sezione corrente è evidenziata. Il vecchio popup Elementor/JetPopup della barra viene nascosto.
 - Pulsante "torna su" in basso a destra: compare dopo un po' di scroll e riporta in cima con uno scorrimento morbido.

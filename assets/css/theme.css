@@ -395,7 +395,11 @@
 	.bn-mbar a { display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--wp--preset--color--ink); font-size: 10.5px; font-weight: 700; line-height: 1.1; }
 	.bn-mbar img { width: 28px; height: 28px; object-fit: contain; }
 	.bn-mbar a[aria-current="page"] { color: var(--wp--preset--color--primary-text); }
-	body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
-	.bn-totop { bottom: calc(76px + env(safe-area-inset-bottom)); right: 12px; }
-	.bnb-bar { bottom: calc(62px + env(safe-area-inset-bottom)) !important; }
+	body:has(.bn-mbar) { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+	body:has(.bn-mbar) .bn-totop { bottom: calc(76px + env(safe-area-inset-bottom)); }
+	.bn-totop { right: 12px; }
+	body:has(.bn-mbar) .bnb-bar { bottom: calc(62px + env(safe-area-inset-bottom)) !important; }
 }
+
+/* 0.6.2: totop sopra la barra "Vai al sito" quando c'e' */
+@media (max-width: 781px) { body:has(.bnb-bar:not([hidden])):not(:has(.bn-mbar)) .bn-totop { bottom: 96px; } }
