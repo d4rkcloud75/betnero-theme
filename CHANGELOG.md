@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.6.5
+- Academy: sidebar "Indice dell'Academy" a sinistra come nel sito originale (stesse voci e sottovoci del menu Academy, sezione corrente aperta, voce corrente evidenziata), fissa durante lo scorrimento, nascosta su tablet e mobile.
+- Articoli: la sidebar non è più fissa, come nell'originale. Il contenuto della sidebar arriva da Betnero Core 0.2.9.
+
 ## 0.6.4
 - Calcolatore di Rischio: anche lo stile è un file del tema (assets/css/risk-calculator.css), caricato solo sulla sua pagina.
 
