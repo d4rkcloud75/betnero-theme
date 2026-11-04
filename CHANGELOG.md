@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.6.7
+- Indice dell'Academy: anche le voci principali con peso normale.
+
 ## 0.6.6
 - Sidebar articoli: larga 241 px come in produzione, pulsante "Vai al sito" accanto al logo.
 - Indice dell'Academy: link con peso normale come in produzione.

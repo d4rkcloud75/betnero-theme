@@ -431,3 +431,4 @@
 .bns2-row { justify-content: flex-start; gap: 24px; }
 .bn-acad-index a { font-weight: 400; }
 .bn-acad-index details ul a { font-weight: 400; }
+.bn-acad-index > ul > li > a, .bn-acad-index summary > a { font-weight: 400 !important; }
