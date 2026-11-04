@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.6.4
+- Calcolatore di Rischio: anche lo stile è un file del tema (assets/css/risk-calculator.css), caricato solo sulla sua pagina.
+
 ## 0.6.3
 - Calcolatore di Rischio: lo script è ora un file del tema (assets/js/risk-calculator.js), caricato solo sulla pagina del calcolatore ed escluso dal ritardo di Velox. In linea nella pagina veniva rovinato dai filtri del contenuto e, sullo staging, era marcato per WP Rocket (che è spento) e non partiva.
 
