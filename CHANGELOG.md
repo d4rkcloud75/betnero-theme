@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.2
+- Guide Correlate dell'Academy ordinate per numero di tag in comune (i tag presenti su più di metà delle guide non contano), poi stessa sezione, poi data di aggiornamento.
+
 ## 0.7.1
 - Academy: in fondo a ogni guida tornano "Ultimo aggiornamento", "Guide Correlate" (prima per tag in comune, poi stessa sezione), box autore e banner che porta alla home dell'Academy.
 - Tag attivi anche sulle pagine, per scegliere le guide correlate.

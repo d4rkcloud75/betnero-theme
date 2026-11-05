@@ -34,59 +34,60 @@ function betnero_is_academy_guide() {
 }
 
 /**
- * Fino a 3 guide correlate: prima quelle con tag in comune, poi quelle della
- * stessa sezione, infine le altre guide Academy aggiornate di recente.
+ * Fino a 3 guide correlate. Punteggio: tag in comune (ignorando i tag presenti
+ * su piu' di meta' delle guide, come "academy"), +1 se della stessa sezione.
+ * A parita' di punteggio vince la guida aggiornata piu' di recente.
  */
 function betnero_academy_related_ids( $post_id, $limit = 3 ) {
-	$all = function_exists( 'betnero_academy_page_ids' ) ? betnero_academy_page_ids() : array();
-	$all = array_values( array_diff( array_map( 'intval', $all ), array( (int) $post_id ) ) );
-	if ( ! $all ) {
+	$post_id = (int) $post_id;
+	$all     = function_exists( 'betnero_academy_page_ids' ) ? array_map( 'intval', betnero_academy_page_ids() ) : array();
+	if ( count( $all ) < 2 ) {
 		return array();
 	}
-	$picked = array();
-	$base   = array(
-		'post_type'      => 'page',
-		'post_status'    => 'publish',
-		'posts_per_page' => $limit,
-		'fields'         => 'ids',
-		'orderby'        => 'modified',
-		'order'          => 'DESC',
-		'no_found_rows'  => true,
-	);
 
-	$tags = wp_get_post_terms( $post_id, 'post_tag', array( 'fields' => 'ids' ) );
-	if ( $tags && ! is_wp_error( $tags ) ) {
-		$picked = get_posts( $base + array(
-			'post__in'  => $all,
-			'tax_query' => array( array( 'taxonomy' => 'post_tag', 'terms' => $tags ) ),
-		) );
-	}
-
-	if ( count( $picked ) < $limit ) {
-		$parent = (int) wp_get_post_parent_id( $post_id );
-		$root   = betnero_academy_root_id();
-		// Sezione: le "sorelle" della guida; per una sezione principale, le sue sottopagine.
-		$section = $parent && $parent !== $root ? $parent : (int) $post_id;
-		$family  = get_posts( array_merge( $base, array(
-			'post__in'       => $all,
-			'post_parent'    => $section,
-			'posts_per_page' => $limit,
-			'post__not_in'   => $picked ? $picked : array( 0 ),
-		) ) );
-		if ( $parent && $parent !== $root && in_array( $parent, $all, true ) && ! in_array( $parent, $picked, true ) ) {
-			array_unshift( $family, $parent );
+	// Tag di tutte le guide in una sola query.
+	$tags  = array();
+	$terms = wp_get_object_terms( $all, 'post_tag', array( 'fields' => 'all_with_object_id' ) );
+	if ( ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $t ) {
+			$tags[ (int) $t->object_id ][] = (int) $t->term_id;
 		}
-		$picked = array_unique( array_merge( $picked, $family ) );
+	}
+	$freq = array();
+	foreach ( $tags as $list ) {
+		foreach ( array_unique( $list ) as $tid ) {
+			$freq[ $tid ] = isset( $freq[ $tid ] ) ? $freq[ $tid ] + 1 : 1;
+		}
+	}
+	$max  = max( 2, (int) floor( count( $all ) / 2 ) );
+	$mine = array();
+	foreach ( isset( $tags[ $post_id ] ) ? array_unique( $tags[ $post_id ] ) : array() as $tid ) {
+		if ( $freq[ $tid ] <= $max ) {
+			$mine[] = $tid;
+		}
 	}
 
-	if ( count( $picked ) < $limit ) {
-		$picked = array_unique( array_merge( $picked, get_posts( $base + array(
-			'post__in'     => $all,
-			'post__not_in' => $picked ? $picked : array( 0 ),
-		) ) ) );
-	}
+	$root    = betnero_academy_root_id();
+	$parent  = (int) wp_get_post_parent_id( $post_id );
+	$section = $parent && $parent !== $root ? $parent : $post_id;
 
-	return array_slice( array_map( 'intval', $picked ), 0, $limit );
+	$scores = array();
+	foreach ( $all as $id ) {
+		if ( $id === $post_id ) {
+			continue;
+		}
+		$other = isset( $tags[ $id ] ) ? $tags[ $id ] : array();
+		$score = 2 * count( array_intersect( $mine, $other ) );
+		$p     = (int) wp_get_post_parent_id( $id );
+		if ( $id === $section || $p === $section ) {
+			$score += 1;
+		}
+		$scores[ $id ] = array( $score, (string) get_post_field( 'post_modified_gmt', $id ) );
+	}
+	uasort( $scores, function ( $x, $y ) {
+		return $y[0] <=> $x[0] ?: strcmp( $y[1], $x[1] );
+	} );
+	return array_slice( array_keys( $scores ), 0, $limit );
 }
 
 /**
