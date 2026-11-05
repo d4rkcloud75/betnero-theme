@@ -44,3 +44,39 @@ function betnero_blog_cats_html() {
 add_action( 'init', function () {
 	add_shortcode( 'bn_blog_cats', 'betnero_blog_cats_html' );
 } );
+
+/**
+ * Sidebar degli archivi del blog, come nel sito originale:
+ * "Tutti i nostri contenuti" (categorie del blog) e "I Migliori Siti di Casinò Online".
+ */
+function betnero_blog_sidebar_html() {
+	$h    = '';
+	$blog = get_category_by_slug( 'blog' );
+	if ( $blog ) {
+		$cats = get_categories( array( 'parent' => $blog->term_id, 'hide_empty' => true, 'orderby' => 'name' ) );
+		if ( $cats ) {
+			$cur = is_category() ? (int) get_queried_object_id() : 0;
+			$h  .= '<nav class="bn-bside-cats" aria-label="Tutti i nostri contenuti"><p class="bn-bside-title">Tutti i nostri contenuti</p><ul>';
+			foreach ( $cats as $c ) {
+				$h .= '<li><a href="' . esc_url( get_category_link( $c ) ) . '"' . ( $cur === (int) $c->term_id ? ' aria-current="page"' : '' ) . '>' . esc_html( $c->name ) . '</a></li>';
+			}
+			$h .= '</ul></nav>';
+		}
+	}
+	if ( function_exists( 'bnc_operators' ) && function_exists( 'bnc_sidebar_row' ) ) {
+		$ops = array_slice( (array) bnc_operators( 'casino' ), 0, 6 );
+		if ( $ops ) {
+			wp_enqueue_style( 'betnero-tables' );
+			$h .= '<div class="bns2 bn-bside-top"><p class="bn-bside-title">I Migliori Siti di Casinò Online</p>';
+			foreach ( $ops as $op ) {
+				$h .= bnc_sidebar_row( $op );
+			}
+			$h .= '</div>';
+		}
+	}
+	return $h;
+}
+
+add_action( 'init', function () {
+	add_shortcode( 'bn_blog_sidebar', 'betnero_blog_sidebar_html' );
+} );

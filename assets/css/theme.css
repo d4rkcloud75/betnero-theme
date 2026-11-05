@@ -512,3 +512,16 @@
 /* 0.7.4: elenchi puntati nelle risposte del riquadro domande dell'header */
 .bn-faqbox > .wp-block-details.is-style-bn-faq > ul, .bn-faqbox > .wp-block-details.is-style-bn-faq > ol { padding-left: 34px; margin-bottom: 8px; }
 .bn-faqbox > .wp-block-details.is-style-bn-faq > ul + p, .bn-faqbox > .wp-block-details.is-style-bn-faq > ol + p { margin-top: 6px; }
+
+/* 0.7.5: colori dei pulsanti categoria (il vecchio tema colorava i link) */
+.bn-blog-cats a, .bn-blog-cats a:hover, .bn-blog-cats a:visited { color: #fff !important; }
+.bn-blog-cats a[aria-current="page"] { color: var(--wp--preset--color--primary-text) !important; }
+
+/* 0.7.5: sidebar degli archivi del blog */
+.bn-blog-side { display: flex; flex-direction: column; gap: 32px; }
+.bn-bside-title { font-size: 18px; font-weight: 700; color: var(--wp--preset--color--ink); margin: 0 0 14px !important; padding-bottom: 10px; border-bottom: 3px solid var(--wp--preset--color--primary); }
+.bn-bside-cats ul { list-style: none; margin: 0; padding: 0; }
+.bn-bside-cats li + li { border-top: 1px solid var(--wp--preset--color--line); }
+.bn-bside-cats a { display: block; padding: 9px 2px; font-size: 15px; color: var(--wp--preset--color--testo) !important; text-decoration: none; }
+.bn-bside-cats a:hover, .bn-bside-cats a[aria-current="page"] { color: var(--wp--preset--color--primary-text) !important; font-weight: 600; }
+.bn-bside-top .bns2-row { margin-bottom: 10px; }
