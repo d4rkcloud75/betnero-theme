@@ -462,3 +462,37 @@
 /* Indirizzi web lunghi nel testo: vanno a capo invece di allargare la pagina su mobile */
 .wp-block-post-content :is(p, li, td, th, dd, blockquote) { overflow-wrap: break-word; }
 .wp-block-post-content :is(p, li) a { overflow-wrap: anywhere; }
+
+/* Academy: widget in fondo alle guide (0.7.1) */
+.bn-acad-updated { background: #EEF6FC; border-left: 4px solid var(--wp--preset--color--primary); border-radius: 0 10px 10px 0; padding: 12px 18px; margin: 40px 0 0; }
+.bn-acad-updated p { margin: 0; font-size: 14.5px; color: var(--wp--preset--color--testo); }
+.bn-acad-updated strong { color: var(--wp--preset--color--primary-text); }
+.bn-acad-related { margin: 40px 0 0; padding-top: 32px; border-top: 3px solid var(--wp--preset--color--primary-text); }
+.bn-acad-related h2 { font-size: 26px; text-align: center; margin: 0 0 22px; color: var(--wp--preset--color--ink); }
+.bn-acad-related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.bn-acad-related-item { display: flex; flex-direction: column; gap: 12px; background: var(--wp--preset--color--surface); border: 1px solid var(--wp--preset--color--line); border-radius: 12px; padding: 18px; text-decoration: none; color: var(--wp--preset--color--testo); transition: box-shadow .2s ease, transform .2s ease; }
+.bn-acad-related-item:hover { box-shadow: 0 8px 24px rgba(16, 24, 40, .1); transform: translateY(-2px); }
+.bn-acad-related-head { display: flex; align-items: center; gap: 14px; }
+.bn-acad-related-img { flex: 0 0 60px; width: 60px !important; height: 60px !important; border-radius: 8px; object-fit: cover; }
+.bn-acad-related-title { font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--wp--preset--color--ink); }
+.bn-acad-related-item:hover .bn-acad-related-title { color: var(--wp--preset--color--primary-text); }
+.bn-acad-related-text { font-size: 14px; line-height: 1.55; color: var(--wp--preset--color--muted); }
+.bn-acad-author { display: flex; gap: 20px; align-items: flex-start; background: #F4F5F7; border-left: 4px solid var(--wp--preset--color--primary-text); border-radius: 0 12px 12px 0; padding: 22px 24px; margin: 32px 0 0; }
+.bn-acad-author-avatar { flex: 0 0 80px; }
+.bn-acad-author-avatar img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: block; }
+.bn-acad-author-name { margin: 0 0 6px !important; font-size: 19px; font-weight: 700; }
+.bn-acad-author-name a { color: var(--wp--preset--color--primary-text); text-decoration: none; }
+.bn-acad-author-bio { margin: 0 !important; font-size: 14.5px; line-height: 1.6; color: var(--wp--preset--color--muted); }
+.bn-acad-banner { background: #EDEEF0; padding: 28px 16px; margin: 48px 0 0 !important; text-align: center; }
+.bn-acad-banner a { display: inline-block; max-width: 1046px; width: 100%; }
+.bn-acad-banner img { display: block; width: 100%; height: auto; }
+@media (max-width: 1024px) {
+	.bn-acad-related-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+	.bn-acad-related-item { padding: 12px; }
+	.bn-acad-related-text { display: none; }
+}
+@media (max-width: 600px) {
+	.bn-acad-author { flex-direction: column; gap: 12px; padding: 18px; }
+	.bn-acad-banner { padding: 20px 16px; }
+	.bn-acad-banner a { max-width: 600px; }
+}

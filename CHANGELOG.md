@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.7.1
+- Academy: in fondo a ogni guida tornano "Ultimo aggiornamento", "Guide Correlate" (prima per tag in comune, poi stessa sezione), box autore e banner che porta alla home dell'Academy.
+- Tag attivi anche sulle pagine, per scegliere le guide correlate.
+
 ## 0.6.8
 - Pagine convertite: stili per colonne affiancate (.bn-cols), riquadri colorati (.bn-box), schede autore (.bn-author-card) e testo centrato (.bn-center); immagini ridimensionate come nell'originale.
 - Guide correlate su mobile: schede che scorrono in orizzontale invece di 4 colonne strette.

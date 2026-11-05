@@ -9,12 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.7.0' );
+define( 'BETNERO_THEME_VERSION', '0.7.1' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/academy.php' );
 require_once get_theme_file_path( 'inc/mobile-bar.php' );
 require_once get_theme_file_path( 'inc/academy-sidebar.php' );
+require_once get_theme_file_path( 'inc/academy-extras.php' );
 
 /**
  * Supporti del tema.

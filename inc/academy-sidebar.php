@@ -79,5 +79,12 @@ add_filter( 'the_content', function ( $content ) {
 	$parts  = explode( '<!--bn-acad-split-->', $content, 2 );
 	$before = 2 === count( $parts ) ? $parts[0] : '';
 	$after  = 2 === count( $parts ) ? $parts[1] : $content;
-	return $before . '<div class="bn-acad-wrap alignwide"><aside class="bn-acad-side">' . betnero_academy_sidebar_html() . '</aside><div class="bn-acad-main">' . $after . '</div></div>';
+	$extras = '';
+	$banner = '';
+	if ( function_exists( 'betnero_is_academy_guide' ) && betnero_is_academy_guide() ) {
+		$id     = get_the_ID();
+		$extras = betnero_academy_updated_html( $id ) . betnero_academy_related_html( $id ) . betnero_academy_author_html( $id );
+		$banner = betnero_academy_banner_html();
+	}
+	return $before . '<div class="bn-acad-wrap alignwide"><aside class="bn-acad-side">' . betnero_academy_sidebar_html() . '</aside><div class="bn-acad-main">' . $after . $extras . '</div></div>' . $banner;
 }, 99 );
