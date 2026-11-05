@@ -508,3 +508,7 @@
 	.bn-blog-cats ul::-webkit-scrollbar { display: none; }
 	.bn-blog-cats li { scroll-snap-align: start; flex: 0 0 auto; }
 }
+
+/* 0.7.4: elenchi puntati nelle risposte del riquadro domande dell'header */
+.bn-faqbox > .wp-block-details.is-style-bn-faq > ul, .bn-faqbox > .wp-block-details.is-style-bn-faq > ol { padding-left: 34px; margin-bottom: 8px; }
+.bn-faqbox > .wp-block-details.is-style-bn-faq > ul + p, .bn-faqbox > .wp-block-details.is-style-bn-faq > ol + p { margin-top: 6px; }

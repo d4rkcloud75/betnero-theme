@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.4
+- Riquadro delle domande nell'header: gli elenchi puntati nelle risposte restano dentro il riquadro.
+
 ## 0.7.3
 - Blog: categorie principali nell'hub (/blog e sottocategorie) sotto il titolo, con la categoria corrente evidenziata; su mobile su una riga che scorre.
 
