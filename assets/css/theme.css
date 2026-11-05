@@ -496,3 +496,15 @@
 	.bn-acad-banner { padding: 20px 16px; }
 	.bn-acad-banner a { max-width: 600px; }
 }
+
+/* Blog: categorie principali nell'hub (0.7.3) */
+.bn-blog-cats { margin-top: 18px; }
+.bn-blog-cats ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.bn-blog-cats a { display: inline-block; padding: 7px 16px; border-radius: 999px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .35); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s ease; }
+.bn-blog-cats a:hover { background: rgba(255, 255, 255, .26); }
+.bn-blog-cats a[aria-current="page"] { background: #fff; border-color: #fff; color: var(--wp--preset--color--primary-text); }
+@media (max-width: 781px) {
+	.bn-blog-cats ul { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-right: 16px; -webkit-overflow-scrolling: touch; }
+	.bn-blog-cats ul::-webkit-scrollbar { display: none; }
+	.bn-blog-cats li { scroll-snap-align: start; flex: 0 0 auto; }
+}

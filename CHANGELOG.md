@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.3
+- Blog: categorie principali nell'hub (/blog e sottocategorie) sotto il titolo, con la categoria corrente evidenziata; su mobile su una riga che scorre.
+
 ## 0.7.2
 - Guide Correlate dell'Academy ordinate per numero di tag in comune (i tag presenti su più di metà delle guide non contano), poi stessa sezione, poi data di aggiornamento.
 
