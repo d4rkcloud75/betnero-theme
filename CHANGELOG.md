@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.6
+- Archivi del blog: sidebar larga 241 px come la toplist, più spazio agli articoli.
+
 ## 0.7.5
 - Blog: pulsanti delle categorie con testo bianco (il vecchio tema li colorava di blu).
 - Archivi del blog: sidebar come nel sito originale ("Tutti i nostri contenuti" e "I Migliori Siti di Casinò Online"), articoli su 2 colonne.

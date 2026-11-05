@@ -525,3 +525,10 @@
 .bn-bside-cats a { display: block; padding: 9px 2px; font-size: 15px; color: var(--wp--preset--color--testo) !important; text-decoration: none; }
 .bn-bside-cats a:hover, .bn-bside-cats a[aria-current="page"] { color: var(--wp--preset--color--primary-text) !important; font-weight: 600; }
 .bn-bside-top .bns2-row { margin-bottom: 10px; }
+
+/* 0.7.6: sidebar del blog larga 241 px come la toplist, il resto agli articoli */
+@media (min-width: 782px) {
+	.bn-layout:has(.bn-blog-side) > .bn-content-col { flex: 1 1 0 !important; min-width: 0; }
+	.bn-layout:has(.bn-blog-side) > .bn-sidebar-col { flex: 0 0 241px !important; max-width: 241px; }
+}
+.bn-blog-side .bn-bside-title { font-size: 17px; }
