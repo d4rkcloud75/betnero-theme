@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.9
+- Articoli: un solo H1 (il titolo). Gli H1 rimasti nel testo vengono mostrati come H2.
+
 ## 0.7.8
 - Indice dell'Academy: sottovoci aperte e chiuse con animazione (serve Betnero Core 0.3.4).
 

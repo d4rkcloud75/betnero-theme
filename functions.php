@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.7.8' );
+define( 'BETNERO_THEME_VERSION', '0.7.9' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/academy.php' );
@@ -18,6 +18,7 @@ require_once get_theme_file_path( 'inc/academy-sidebar.php' );
 require_once get_theme_file_path( 'inc/academy-extras.php' );
 require_once get_theme_file_path( 'inc/blog-cats.php' );
 require_once get_theme_file_path( 'inc/home-guide.php' );
+require_once get_theme_file_path( 'inc/seo.php' );
 
 /**
  * Supporti del tema.
