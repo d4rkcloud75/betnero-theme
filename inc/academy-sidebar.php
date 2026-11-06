@@ -76,6 +76,9 @@ add_filter( 'the_content', function ( $content ) {
 	if ( ! in_the_loop() || ! is_main_query() || ! betnero_is_academy_request() ) {
 		return $content;
 	}
+	if ( wp_script_is( 'betnero-faq', 'registered' ) ) {
+		wp_enqueue_script( 'betnero-faq' ); // Betnero Core 0.3.4: sottovoci dell'indice aperte e chiuse con animazione.
+	}
 	$parts  = explode( '<!--bn-acad-split-->', $content, 2 );
 	$before = 2 === count( $parts ) ? $parts[0] : '';
 	$after  = 2 === count( $parts ) ? $parts[1] : $content;

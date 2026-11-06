@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.8
+- Indice dell'Academy: sottovoci aperte e chiuse con animazione (serve Betnero Core 0.3.4).
+
 ## 0.7.7
 - Home: stile della sezione "Guida Betnero" (testi della vecchia home in voci apribili su due colonne); il titolo di ogni voce diventa un H3 nella pagina.
 
