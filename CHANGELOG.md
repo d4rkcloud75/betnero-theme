@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.7.7
+- Home: stile della sezione "Guida Betnero" (testi della vecchia home in voci apribili su due colonne); il titolo di ogni voce diventa un H3 nella pagina.
+
 ## 0.7.6
 - Archivi del blog: sidebar larga 241 px come la toplist, più spazio agli articoli.
 
