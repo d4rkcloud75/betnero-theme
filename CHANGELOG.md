@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.0
+- Tolta la barra di icone fissa in basso su mobile (Casino, Live Casino, Slot, Scommesse, Promozioni, Blog). Resta il pulsante "torna su".
+
 ## 0.7.9
 - Articoli: un solo H1 (il titolo). Gli H1 rimasti nel testo vengono mostrati come H2.
 
