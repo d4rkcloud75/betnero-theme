@@ -1,5 +1,10 @@
 # Changelog tema Betnero
 
+## 0.8.2
+- Menu mobile nuovo: pannello da sinistra largo 3/4 (il sito resta visibile scurito), ricerca, scorciatoie Academy e Calcolatore di Rischio, sezioni con icona e sottomenu a fisarmonica, "I migliori del mese" (primi 3 casino). Le voci arrivano dal menu dell'header.
+- Menu veloce in basso di nuovo sulle pagine interne (non in home e non dove c'e' la barra di Betnero Core), con icone a linea piu' piccole nei colori del logo.
+- Hub dell'Academy: anche li' ultimo aggiornamento, guide correlate e autore.
+
 ## 0.8.1
 - Accordion (blocco Dettagli): nuova scelta "Titolo come" nella barra laterale dell'editor (Predefinito, Testo semplice, H2, H3, H4). Il titolo della voce diventa un vero titolo per Google, con lo stesso aspetto di prima. Predefinito: H3 nella Guida Betnero della home, testo semplice altrove.
 

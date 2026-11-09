@@ -101,3 +101,135 @@
 		boot();
 	}
 } )();
+
+/*
+ * Menu mobile a pannello (0.8.2). Il pulsante del menu del blocco Navigazione
+ * apre il pannello #bn-drawer al posto del menu a tutto schermo di WordPress.
+ */
+( function () {
+	var reduce = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+	var EASE = 'cubic-bezier(.2,.7,.2,1)';
+	var dr, panel, lastFocus;
+
+	function open() {
+		if ( ! dr || ! dr.hidden ) {
+			return;
+		}
+		lastFocus = document.activeElement;
+		dr.hidden = false;
+		document.documentElement.classList.add( 'bn-dr-lock' );
+		requestAnimationFrame( function () {
+			dr.classList.add( 'is-open' );
+		} );
+		var x = dr.querySelector( '.bn-dr-x' );
+		if ( x ) {
+			x.focus( { preventScroll: true } );
+		}
+	}
+
+	function close() {
+		if ( ! dr || dr.hidden ) {
+			return;
+		}
+		dr.classList.remove( 'is-open' );
+		document.documentElement.classList.remove( 'bn-dr-lock' );
+		setTimeout( function () {
+			dr.hidden = true;
+		}, reduce ? 0 : 300 );
+		if ( lastFocus && lastFocus.focus ) {
+			lastFocus.focus( { preventScroll: true } );
+		}
+	}
+
+	function animateSub( sub, show ) {
+		if ( reduce || ! sub.animate ) {
+			sub.hidden = ! show;
+			return;
+		}
+		if ( show ) {
+			sub.hidden = false;
+		}
+		var h = sub.scrollHeight;
+		var a = sub.animate(
+			show ? [ { height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 } ] : [ { height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 } ],
+			{ duration: show ? 280 : 220, easing: EASE }
+		);
+		sub.style.overflow = 'hidden';
+		a.onfinish = function () {
+			sub.style.overflow = '';
+			if ( ! show ) {
+				sub.hidden = true;
+			}
+		};
+	}
+
+	function toggleSec( btn ) {
+		var sec = btn.parentElement;
+		var sub = sec.querySelector( '.bn-dr-sub' );
+		var willOpen = btn.getAttribute( 'aria-expanded' ) !== 'true';
+		// Una sezione alla volta.
+		dr.querySelectorAll( '.bn-dr-it[aria-expanded="true"]' ).forEach( function ( o ) {
+			if ( o !== btn ) {
+				o.setAttribute( 'aria-expanded', 'false' );
+				o.parentElement.classList.remove( 'is-open' );
+				animateSub( o.parentElement.querySelector( '.bn-dr-sub' ), false );
+			}
+		} );
+		btn.setAttribute( 'aria-expanded', willOpen ? 'true' : 'false' );
+		sec.classList.toggle( 'is-open', willOpen );
+		animateSub( sub, willOpen );
+		dr.classList.toggle( 'has-open', willOpen );
+	}
+
+	function boot() {
+		dr = document.getElementById( 'bn-drawer' );
+		if ( ! dr ) {
+			return;
+		}
+		panel = dr.querySelector( '.bn-dr-panel' );
+		// Il pulsante del menu di WordPress apre il pannello (fase di cattura: prima del menu a tutto schermo).
+		document.addEventListener( 'click', function ( e ) {
+			var b = e.target.closest( '.bn-nav .wp-block-navigation__responsive-container-open' );
+			if ( b ) {
+				e.preventDefault();
+				e.stopPropagation();
+				e.stopImmediatePropagation();
+				open();
+			}
+		}, true );
+		dr.addEventListener( 'click', function ( e ) {
+			if ( e.target.closest( '[data-bn-close]' ) ) {
+				close();
+				return;
+			}
+			var it = e.target.closest( '.bn-dr-it' );
+			if ( it ) {
+				toggleSec( it );
+				return;
+			}
+			var more = e.target.closest( '.bn-dr-more' );
+			if ( more ) {
+				more.parentElement.querySelectorAll( '.is-more' ).forEach( function ( a ) {
+					a.hidden = false;
+				} );
+				more.remove();
+			}
+		} );
+		document.addEventListener( 'keydown', function ( e ) {
+			if ( 'Escape' === e.key ) {
+				close();
+			}
+		} );
+		// Se lo schermo si allarga (rotazione del telefono), il pannello si chiude.
+		window.addEventListener( 'resize', function () {
+			if ( window.innerWidth >= 600 ) {
+				close();
+			}
+		} );
+	}
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', boot );
+	} else {
+		boot();
+	}
+} )();

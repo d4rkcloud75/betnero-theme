@@ -84,10 +84,11 @@ add_filter( 'the_content', function ( $content ) {
 	$after  = 2 === count( $parts ) ? $parts[1] : $content;
 	$extras = '';
 	$banner = '';
-	if ( function_exists( 'betnero_is_academy_guide' ) && betnero_is_academy_guide() ) {
+	if ( function_exists( 'betnero_academy_updated_html' ) ) {
+		// Ultimo aggiornamento, guide correlate e autore anche sull'hub (0.8.2); il banner solo sulle guide.
 		$id     = get_the_ID();
 		$extras = betnero_academy_updated_html( $id ) . betnero_academy_related_html( $id ) . betnero_academy_author_html( $id );
-		$banner = betnero_academy_banner_html();
+		$banner = betnero_is_academy_guide() ? betnero_academy_banner_html() : '';
 	}
 	return $before . '<div class="bn-acad-wrap alignwide"><aside class="bn-acad-side">' . betnero_academy_sidebar_html() . '</aside><div class="bn-acad-main">' . $after . $extras . '</div></div>' . $banner;
 }, 99 );
