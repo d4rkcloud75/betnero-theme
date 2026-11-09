@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.5
+- Pagine Academy: "Guide Correlate" scorrevoli in orizzontale con il dito su tablet e mobile, con l'estratto di nuovo visibile.
+
 ## 0.8.4
 - Niente piu' pulsanti rossi al tocco (X del menu, pulsante del menu e altri): il reset del vecchio tema Hello e' ora una copia nel tema senza i colori rosa di link e pulsanti.
 - Home su mobile: "Ultimi pronostici", "Ultimi articoli e guide" e "Ultime guide dall'Academy" scorrono in orizzontale con il dito.
