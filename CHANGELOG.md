@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.3
+- Menu mobile: X non piu' rossa al tocco, nome della sezione aperta leggibile, "Altre N voci" funziona (mostra 5 voci, le altre al tocco), mese in minuscolo.
+
 ## 0.8.2
 - Menu mobile nuovo: pannello da sinistra largo 3/4 (il sito resta visibile scurito), ricerca, scorciatoie Academy e Calcolatore di Rischio, sezioni con icona e sottomenu a fisarmonica, "I migliori del mese" (primi 3 casino). Le voci arrivano dal menu dell'header.
 - Menu veloce in basso di nuovo sulle pagine interne (non in home e non dove c'e' la barra di Betnero Core), con icone a linea piu' piccole nei colori del logo.
