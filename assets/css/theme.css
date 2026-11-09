@@ -555,3 +555,8 @@
 	.bn-guide-item > :not(summary) { padding: 0 16px; }
 	.bn-guide-item > ul { padding-left: 36px; }
 }
+
+/* 0.8.1: titoli H2/H3/H4 dentro il sommario degli accordion: stesso aspetto del testo del sommario */
+.wp-block-details > summary > .bn-sum-h { display: inline; margin: 0 !important; padding: 0; font: inherit !important; color: inherit !important; letter-spacing: inherit; text-transform: inherit; line-height: inherit; }
+.bn-guide-item > summary > .bn-guide-title { font-size: 16.5px !important; font-weight: 700 !important; color: var(--wp--preset--color--navy) !important; line-height: 1.35 !important; }
+@media (max-width: 781px) { .bn-guide-item > summary > .bn-guide-title { font-size: 15.5px !important; } }

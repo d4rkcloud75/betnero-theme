@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.1
+- Accordion (blocco Dettagli): nuova scelta "Titolo come" nella barra laterale dell'editor (Predefinito, Testo semplice, H2, H3, H4). Il titolo della voce diventa un vero titolo per Google, con lo stesso aspetto di prima. Predefinito: H3 nella Guida Betnero della home, testo semplice altrove.
+
 ## 0.8.0
 - Tolta la barra di icone fissa in basso su mobile (Casino, Live Casino, Slot, Scommesse, Promozioni, Blog). Resta il pulsante "torna su".
 
