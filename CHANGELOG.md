@@ -1,5 +1,9 @@
 # Changelog tema Betnero
 
+## 0.8.4
+- Niente piu' pulsanti rossi al tocco (X del menu, pulsante del menu e altri): il reset del vecchio tema Hello e' ora una copia nel tema senza i colori rosa di link e pulsanti.
+- Home su mobile: "Ultimi pronostici", "Ultimi articoli e guide" e "Ultime guide dall'Academy" scorrono in orizzontale con il dito.
+
 ## 0.8.3
 - Menu mobile: X non piu' rossa al tocco, nome della sezione aperta leggibile, "Altre N voci" funziona (mostra 5 voci, le altre al tocco), mese in minuscolo.
 

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.8.3' );
+define( 'BETNERO_THEME_VERSION', '0.8.4' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/academy.php' );
@@ -121,10 +121,8 @@ add_action( 'wp_head', function () {
  * Reset di base di Hello Elementor, se il vecchio tema e' ancora installato.
  */
 add_action( 'wp_enqueue_scripts', function () {
-	$reset = get_theme_root() . '/hello-elementor/assets/css/reset.css';
-	if ( file_exists( $reset ) ) {
-		wp_enqueue_style( 'betnero-legacy-reset', get_theme_root_uri() . '/hello-elementor/assets/css/reset.css', array(), BETNERO_THEME_VERSION );
-	}
+	// Dalla 0.8.4 una copia nel tema, senza i colori rosa di link e pulsanti (non serve piu' Hello installato).
+	wp_enqueue_style( 'betnero-legacy-reset', get_theme_file_uri( 'assets/css/legacy-reset.css' ), array(), BETNERO_THEME_VERSION );
 }, 5 );
 
 /*

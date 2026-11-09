@@ -629,3 +629,16 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 .bn-dr-more, .bn-dr-more:hover, .bn-dr-more:focus { background: transparent !important; color: var(--wp--preset--color--primary-text) !important; border: 0 !important; }
 .bn-dr-sub a[hidden], .bn-dr-sub[hidden] { display: none !important; }
 .bn-mbar a:focus { background: transparent; }
+
+/* 0.8.4: pulsanti del menu senza stati colorati al tocco */
+.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-open:hover, .wp-block-navigation__responsive-container-open:focus,
+.bn-dr-x, .bn-dr-x:hover, .bn-dr-x:focus { -webkit-tap-highlight-color: transparent; }
+.wp-block-navigation__responsive-container-open:hover, .wp-block-navigation__responsive-container-open:focus { background: transparent !important; color: var(--wp--preset--color--ink) !important; }
+
+/* 0.8.4: schede degli articoli scorrevoli su mobile (ultimi pronostici, articoli, guide Academy) */
+@media (max-width: 781px) {
+	.wp-block-post-template.bn-cards2 { display: flex !important; flex-wrap: nowrap !important; gap: 12px !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 2px 2px 10px !important; margin: 0 !important; }
+	.wp-block-post-template.bn-cards2::-webkit-scrollbar { display: none; }
+	.wp-block-post-template.bn-cards2 > li { flex: 0 0 78% !important; max-width: 78%; width: 78% !important; scroll-snap-align: start; margin: 0 !important; }
+	.wp-block-post-template.bn-cards2 > li .bn-card2 { height: 100%; }
+}
