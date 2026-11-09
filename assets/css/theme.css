@@ -620,3 +620,12 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 	body:has(.bn-mbar) { padding-bottom: calc(54px + env(safe-area-inset-bottom)); }
 	body:has(.bn-mbar) .bn-totop { bottom: calc(68px + env(safe-area-inset-bottom)); }
 }
+
+/* 0.8.3: correzioni del pannello (il reset del vecchio tema colorava i pulsanti al focus) */
+.bn-dr-x, .bn-dr-x:hover, .bn-dr-x:focus, .bn-dr-x:active { background: var(--wp--preset--color--surface) !important; color: var(--wp--preset--color--navy) !important; border: 0 !important; }
+.bn-dr-x:focus-visible, .bn-dr-it:focus-visible, .bn-dr-more:focus-visible { outline: 2px solid var(--wp--preset--color--primary) !important; outline-offset: 2px; }
+.bn-dr-it, .bn-dr-it:hover, .bn-dr-it:focus, .bn-dr-it:active { color: var(--wp--preset--color--navy) !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.bn-dr-sec.is-open .bn-dr-it, .bn-dr-sec.is-open .bn-dr-it:hover, .bn-dr-sec.is-open .bn-dr-it:focus { background: #F4F8FC !important; }
+.bn-dr-more, .bn-dr-more:hover, .bn-dr-more:focus { background: transparent !important; color: var(--wp--preset--color--primary-text) !important; border: 0 !important; }
+.bn-dr-sub a[hidden], .bn-dr-sub[hidden] { display: none !important; }
+.bn-mbar a:focus { background: transparent; }
