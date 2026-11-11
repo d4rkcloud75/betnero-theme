@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.7
+- Breadcrumb visibile uguale su tutto il sito, sopra l'H1: quello di Yoast (lo stesso del JSON-LD), con "Home" come prima voce. Dentro la prima fascia della pagina, o sopra il contenuto dove la fascia non c'e'. Tolti i breadcrumb sparsi nei template di articoli e archivi.
+
 ## 0.8.6
 - Elenchi dinamici dentro i blocchi "bn-related" (es. "Ultime Guide dall'Academy" in Contatti): su mobile schede scorrevoli come in home.
 

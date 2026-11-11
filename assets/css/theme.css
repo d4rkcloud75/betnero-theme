@@ -664,3 +664,15 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 	.bn-related .wp-block-post-template.bn-cards2 .bn-card2-body { padding: 0 14px !important; }
 	.bn-related .wp-block-post-template.bn-cards2 .wp-block-post-title { margin: 12px 0 0 !important; font-size: 16px !important; }
 }
+
+/* 0.8.7: breadcrumb uguale ovunque, sopra l'H1 */
+.bn-bc { font-size: 13px; line-height: 1.5; color: var(--wp--preset--color--muted); margin: 0 0 14px !important; }
+.bn-bc a { color: var(--wp--preset--color--primary-text) !important; font-weight: 600; text-decoration: none; }
+.bn-bc a:hover { text-decoration: underline; }
+.bn-bc .breadcrumb_last { color: inherit; }
+.bn-bc--light { color: rgba(255,255,255,.82); }
+.bn-bc--light a { color: #fff !important; }
+.wp-block-post-content > .bn-bc { margin-top: 24px !important; }
+@media (max-width: 781px) {
+	.bn-bc { font-size: 12.5px; margin-bottom: 10px !important; }
+}
