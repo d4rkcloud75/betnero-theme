@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.6
+- Elenchi dinamici dentro i blocchi "bn-related" (es. "Ultime Guide dall'Academy" in Contatti): su mobile schede scorrevoli come in home.
+
 ## 0.8.5
 - Pagine Academy: "Guide Correlate" scorrevoli in orizzontale con il dito su tablet e mobile, con l'estratto di nuovo visibile.
 
