@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.8.9
+- Breadcrumb in italiano anche su autore (nome dell'autore invece di "Archives for"), ricerca e pagina 404.
+
 ## 0.8.8
 - Breadcrumb: il tema dichiara il supporto al breadcrumb di Yoast, che altrimenti con l'opzione spenta restava vuoto.
 

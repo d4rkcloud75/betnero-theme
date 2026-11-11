@@ -26,6 +26,18 @@ add_filter( 'wpseo_breadcrumb_links', function ( $links ) {
 	if ( ! empty( $links ) && isset( $links[0]['text'] ) ) {
 		$links[0]['text'] = 'Home';
 	}
+	// Ultima voce in italiano dove Yoast usa i suoi testi predefiniti in inglese.
+	$last = count( $links ) - 1;
+	if ( $last > 0 ) {
+		if ( is_author() ) {
+			$a = get_queried_object();
+			$links[ $last ]['text'] = $a && isset( $a->display_name ) ? $a->display_name : $links[ $last ]['text'];
+		} elseif ( is_search() ) {
+			$links[ $last ]['text'] = 'Ricerca: ' . get_search_query();
+		} elseif ( is_404() ) {
+			$links[ $last ]['text'] = 'Pagina non trovata';
+		}
+	}
 	return $links;
 } );
 
