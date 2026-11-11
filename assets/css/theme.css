@@ -666,7 +666,7 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 }
 
 /* 0.8.7: breadcrumb uguale ovunque, sopra l'H1 */
-.bn-bc { font-size: 13px; line-height: 1.5; color: var(--wp--preset--color--muted); margin: 0 0 14px !important; }
+.bn-bc { font-size: 13px; line-height: 1.5; color: var(--wp--preset--color--muted); margin-top: 0 !important; margin-bottom: 14px !important; }
 .bn-bc a { color: var(--wp--preset--color--primary-text) !important; font-weight: 600; text-decoration: none; }
 .bn-bc a:hover { text-decoration: underline; }
 .bn-bc .breadcrumb_last { color: inherit; }
@@ -675,4 +675,5 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 .wp-block-post-content > .bn-bc { margin-top: 24px !important; }
 @media (max-width: 781px) {
 	.bn-bc { font-size: 12.5px; margin-bottom: 10px !important; }
+	.bn-hh .bn-bc, .bn-ph .bn-bc { margin-bottom: 8px !important; }
 }

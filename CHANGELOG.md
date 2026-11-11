@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.9.0
+- Breadcrumb allineato alla colonna del contenuto (prima partiva dal bordo della fascia).
+
 ## 0.8.9
 - Breadcrumb in italiano anche su autore (nome dell'autore invece di "Archives for"), ricerca e pagina 404.
 
