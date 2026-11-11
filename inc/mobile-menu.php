@@ -114,10 +114,11 @@ function betnero_mobile_menu_html() {
 		$id    = 'bn-dr-sub-' . $n;
 		$secs .= '<div class="bn-dr-sec"><button type="button" class="bn-dr-it" aria-expanded="false" aria-controls="' . $id . '"><span class="bn-dr-ic">' . betnero_icon( betnero_menu_icon_for( $label ), 18 ) . '</span><span class="bn-dr-lb">' . esc_html( $label ) . '</span><span class="bn-dr-chev">' . betnero_icon( 'chev', 18 ) . '</span></button>';
 		$secs .= '<div class="bn-dr-sub" id="' . $id . '" hidden><a class="is-all" href="' . $u( $url ) . '">Tutto su ' . esc_html( $label ) . '</a>';
+		$cut = count( $kids ) > 6 ? 5 : 99; // se avanza una sola voce, si mostrano tutte
 		foreach ( $kids as $i => $k ) {
-			$secs .= '<a href="' . $u( $k[1] ) . '"' . ( $i >= 5 ? ' class="is-more" hidden' : '' ) . '>' . esc_html( $k[0] ) . '</a>';
+			$secs .= '<a href="' . $u( $k[1] ) . '"' . ( $i >= $cut ? ' class="is-more" hidden' : '' ) . '>' . esc_html( $k[0] ) . '</a>';
 		}
-		if ( count( $kids ) > 5 ) {
+		if ( count( $kids ) > $cut ) {
 			$secs .= '<button type="button" class="bn-dr-more">Altre ' . ( count( $kids ) - 5 ) . ' voci ' . betnero_icon( 'chev', 14 ) . '</button>';
 		}
 		$secs .= '</div></div>';
