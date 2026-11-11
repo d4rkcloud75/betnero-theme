@@ -16,6 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Il tema mostra il breadcrumb di Yoast (anche se l'opzione nelle impostazioni di Yoast e' spenta).
+add_action( 'after_setup_theme', function () {
+	add_theme_support( 'yoast-seo-breadcrumbs' );
+} );
+
 // Prima voce sempre "Home" (in passato compariva "Home nuova").
 add_filter( 'wpseo_breadcrumb_links', function ( $links ) {
 	if ( ! empty( $links ) && isset( $links[0]['text'] ) ) {
