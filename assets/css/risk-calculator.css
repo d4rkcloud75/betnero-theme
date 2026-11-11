@@ -81,13 +81,13 @@
   background: linear-gradient(90deg, var(--bn-lb), var(--bn-ly));
   border-radius:2px;
 }
-.brc-widget .header h1
-{ font-size:30px; font-weight:800; line-height:1.1; color:#fff; }
-.brc-widget .header h1 .h1-blue
+.brc-widget .header h1, .brc-widget .header .brc-h1
+{ margin:0; font-size:30px; font-weight:800; line-height:1.1; color:#fff; }
+.brc-widget .header h1 .h1-blue, .brc-widget .header .brc-h1 .h1-blue
 { color:#0199ED; }
-.brc-widget .header h1 .h1-risk
+.brc-widget .header h1 .h1-risk, .brc-widget .header .brc-h1 .h1-risk
 { color:#eea700; }
-.brc-widget .header h1 span
+.brc-widget .header h1 span, .brc-widget .header .brc-h1 span
 { color:var(--accent); }
 .brc-widget .header-sub
 { font-size:12px; color:var(--muted); margin-top:6px; letter-spacing:.02em; }

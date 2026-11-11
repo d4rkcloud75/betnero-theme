@@ -53,20 +53,36 @@ function betnero_menu_items() {
 		if ( empty( $a['label'] ) ) {
 			continue;
 		}
-		$kids = array();
+		$kids  = array();
+		$extra = array(); // sottomenu annidati (es. Casino Live dentro Casino): nel pannello diventano sezioni a parte
 		foreach ( (array) $b['innerBlocks'] as $c ) {
-			if ( ! empty( $c['attrs']['label'] ) ) {
-				$kids[] = array( $c['attrs']['label'], isset( $c['attrs']['url'] ) ? $c['attrs']['url'] : '#' );
+			if ( empty( $c['attrs']['label'] ) ) {
+				continue;
 			}
+			$c_url = isset( $c['attrs']['url'] ) ? $c['attrs']['url'] : '#';
+			if ( ! empty( $c['innerBlocks'] ) ) {
+				$sub = array();
+				foreach ( $c['innerBlocks'] as $g ) {
+					if ( ! empty( $g['attrs']['label'] ) ) {
+						$sub[] = array( $g['attrs']['label'], isset( $g['attrs']['url'] ) ? $g['attrs']['url'] : '#' );
+					}
+				}
+				$extra[] = array( $c['attrs']['label'], $c_url, $sub );
+				continue;
+			}
+			$kids[] = array( $c['attrs']['label'], $c_url );
 		}
 		$items[] = array( $a['label'], isset( $a['url'] ) ? $a['url'] : '#', $kids );
+		foreach ( $extra as $e ) {
+			$items[] = $e;
+		}
 	}
 	return $items;
 }
 
 function betnero_menu_icon_for( $label ) {
 	$l = strtolower( remove_accents( $label ) );
-	foreach ( array( 'casino' => 'casino', 'slot' => 'slot', 'scommess' => 'scommesse', 'bonus' => 'bonus', 'promo' => 'bonus', 'blog' => 'blog', 'pronostic' => 'blog', 'academy' => 'academy', 'calcolatore' => 'calc' ) as $k => $icon ) {
+	foreach ( array( 'live' => 'live', 'casino' => 'casino', 'slot' => 'slot', 'scommess' => 'scommesse', 'bonus' => 'bonus', 'promo' => 'bonus', 'blog' => 'blog', 'pronostic' => 'blog', 'academy' => 'academy', 'calcolatore' => 'calc' ) as $k => $icon ) {
 		if ( false !== strpos( $l, $k ) ) {
 			return $icon;
 		}

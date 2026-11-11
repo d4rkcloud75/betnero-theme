@@ -50,7 +50,7 @@ function betnero_mobile_bar_items() {
  * Pagine interne si', home no; e niente barra dove c'e' gia' quella di Betnero Core.
  */
 function betnero_mobile_bar_enabled( $path ) {
-	$enabled = ! ( is_front_page() || is_home() );
+	$enabled = true; // dalla 0.9.1 anche in home (richiesta di Francesco)
 	if ( $enabled && is_singular() && function_exists( 'bnc_bar_operator' ) && bnc_bar_operator( get_queried_object_id() ) ) {
 		$enabled = false;
 	}
