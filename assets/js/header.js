@@ -111,8 +111,49 @@
 	var EASE = 'cubic-bezier(.2,.7,.2,1)';
 	var dr, panel, lastFocus;
 
+	// 0.9.3: il pannello arriva in un <template> (fuori dal contenuto della pagina, cosi'
+	// il menu non risulta ripetuto nel codice) e viene creato solo alla prima apertura.
+	function mount() {
+		if ( dr ) {
+			return true;
+		}
+		dr = document.getElementById( 'bn-drawer' );
+		if ( ! dr ) {
+			var t = document.getElementById( 'bn-drawer-tpl' );
+			if ( ! t || ! t.content ) {
+				return false;
+			}
+			document.body.appendChild( t.content.cloneNode( true ) );
+			dr = document.getElementById( 'bn-drawer' );
+			if ( ! dr ) {
+				return false;
+			}
+			void dr.offsetWidth;
+		}
+		panel = dr.querySelector( '.bn-dr-panel' );
+		dr.addEventListener( 'click', function ( e ) {
+			if ( e.target.closest( '[data-bn-close]' ) ) {
+				close();
+				return;
+			}
+			var it = e.target.closest( '.bn-dr-it' );
+			if ( it ) {
+				toggleSec( it );
+				return;
+			}
+			var more = e.target.closest( '.bn-dr-more' );
+			if ( more ) {
+				more.parentElement.querySelectorAll( '.is-more' ).forEach( function ( a ) {
+					a.hidden = false;
+				} );
+				more.remove();
+			}
+		} );
+		return true;
+	}
+
 	function open() {
-		if ( ! dr || ! dr.hidden ) {
+		if ( ! mount() || ! dr.hidden ) {
 			return;
 		}
 		lastFocus = document.activeElement;
@@ -182,11 +223,9 @@
 	}
 
 	function boot() {
-		dr = document.getElementById( 'bn-drawer' );
-		if ( ! dr ) {
+		if ( ! document.getElementById( 'bn-drawer' ) && ! document.getElementById( 'bn-drawer-tpl' ) ) {
 			return;
 		}
-		panel = dr.querySelector( '.bn-dr-panel' );
 		// Il pulsante del menu di WordPress apre il pannello (fase di cattura: prima del menu a tutto schermo).
 		document.addEventListener( 'click', function ( e ) {
 			var b = e.target.closest( '.bn-nav .wp-block-navigation__responsive-container-open' );
@@ -197,24 +236,6 @@
 				open();
 			}
 		}, true );
-		dr.addEventListener( 'click', function ( e ) {
-			if ( e.target.closest( '[data-bn-close]' ) ) {
-				close();
-				return;
-			}
-			var it = e.target.closest( '.bn-dr-it' );
-			if ( it ) {
-				toggleSec( it );
-				return;
-			}
-			var more = e.target.closest( '.bn-dr-more' );
-			if ( more ) {
-				more.parentElement.querySelectorAll( '.is-more' ).forEach( function ( a ) {
-					a.hidden = false;
-				} );
-				more.remove();
-			}
-		} );
 		document.addEventListener( 'keydown', function ( e ) {
 			if ( 'Escape' === e.key ) {
 				close();

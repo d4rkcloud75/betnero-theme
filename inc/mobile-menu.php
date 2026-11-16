@@ -157,5 +157,9 @@ add_action( 'wp_footer', function () {
 	if ( is_admin() ) {
 		return;
 	}
-	echo betnero_mobile_menu_html(); // phpcs:ignore WordPress.Security.EscapeOutput
+	$html = betnero_mobile_menu_html();
+	if ( $html ) {
+		// Dentro un <template>: non fa parte del contenuto letto dai motori di ricerca, il JavaScript lo crea alla prima apertura.
+		echo '<template id="bn-drawer-tpl">' . $html . '</template>'; // phpcs:ignore WordPress.Security.EscapeOutput
+	}
 }, 15 );
