@@ -276,7 +276,7 @@ function betnero_render_table( $type, $attributes ) {
 		$h .= '<div class="bnt-rate">' . betnero_stars( $op['rating'] ) . '</div>';
 		$h .= '<div class="bnt-btns">' . betnero_go_button( $op['go'] ) . betnero_review_button( $op['review'] ) . '</div>';
 		if ( $show_parere && $op['parere'] ) {
-			$h .= '<div class="bnt-parere">' . wp_kses_post( $op['parere'] ) . '</div>';
+			$h .= '<div class="bnt-parere">' . ( function_exists( 'bnc_parere_html' ) ? bnc_parere_html( $op['parere'] ) : wp_kses_post( $op['parere'] ) ) . '</div>';
 		}
 		$h .= '</div>';
 	}
