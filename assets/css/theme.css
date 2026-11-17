@@ -726,3 +726,22 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 	.bn-pn-empty { display: none; }
 	.bn-pn-thumb { flex-basis: 60px; width: 60px; height: 60px; }
 }
+
+/* 0.9.6: barra rapida mobile con icone a tinta unita colorate (variante A scelta il 17/11) */
+@media (max-width: 781px) {
+	.bn-mbar { padding: 6px 2px calc(6px + env(safe-area-inset-bottom)); background: #fff; }
+	.bn-mbar a { gap: 4px; font-size: 10px; font-weight: 700; color: #1d2a44 !important; --c: #2f80ed; }
+	.bn-mbar a:nth-child(2) { --c: #e5484d; }
+	.bn-mbar a:nth-child(3) { --c: #8e5cf0; }
+	.bn-mbar a:nth-child(4) { --c: #1fa463; }
+	.bn-mbar a:nth-child(5) { --c: #f59e0b; }
+	.bn-mbar a:nth-child(6) { --c: #0ea5c6; }
+	.bn-mbar svg { box-sizing: content-box; width: 17px !important; height: 17px !important; padding: 6.5px; border-radius: 10px; background: var(--c); stroke-width: 2.2; }
+	.bn-mbar a svg, .bn-mbar a[aria-current="page"] svg { color: #fff !important; }
+	.bn-mbar a:first-child svg circle { fill: currentColor; }
+	.bn-mbar a[aria-current="page"] svg { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--c); }
+	.bn-mbar a[aria-current="page"], .bn-mbar a[aria-current="page"] span { color: var(--c) !important; }
+	body:has(.bn-mbar) { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+	body:has(.bn-mbar) .bn-totop { bottom: calc(76px + env(safe-area-inset-bottom)); }
+	body:has(.bn-mbar) .bnb-bar { bottom: calc(62px + env(safe-area-inset-bottom)) !important; }
+}
