@@ -26,6 +26,14 @@ add_filter( 'wpseo_breadcrumb_links', function ( $links ) {
 	if ( ! empty( $links ) && isset( $links[0]['text'] ) ) {
 		$links[0]['text'] = 'Home';
 	}
+	// 0.9.5: negli articoli il percorso passa dalle categorie (Home > Blog > Pronostici > articolo),
+	// anche nel BreadcrumbList dei dati strutturati, che Yoast genera da questo stesso elenco.
+	if ( is_singular( 'post' ) && count( $links ) <= 2 ) {
+		$chain = betnero_breadcrumb_category_chain( get_queried_object_id() );
+		if ( $chain ) {
+			array_splice( $links, 1, 0, $chain );
+		}
+	}
 	// Ultima voce in italiano dove Yoast usa i suoi testi predefiniti in inglese.
 	$last = count( $links ) - 1;
 	if ( $last > 0 ) {
@@ -40,6 +48,44 @@ add_filter( 'wpseo_breadcrumb_links', function ( $links ) {
 	}
 	return $links;
 } );
+
+/**
+ * Categoria principale dell'articolo (quella scelta come "principale" in Yoast, altrimenti la piu' profonda)
+ * con tutte le categorie superiori, dalla piu' alta alla piu' bassa.
+ */
+function betnero_breadcrumb_category_chain( $post_id ) {
+	$term    = null;
+	$primary = (int) get_post_meta( $post_id, '_yoast_wpseo_primary_category', true );
+	if ( $primary ) {
+		$t = get_term( $primary, 'category' );
+		if ( $t && ! is_wp_error( $t ) ) {
+			$term = $t;
+		}
+	}
+	if ( ! $term ) {
+		$best = -1;
+		foreach ( (array) get_the_category( $post_id ) as $c ) {
+			$depth = count( get_ancestors( $c->term_id, 'category' ) );
+			if ( $depth > $best ) {
+				$best = $depth;
+				$term = $c;
+			}
+		}
+	}
+	if ( ! $term ) {
+		return array();
+	}
+	$ids   = array_reverse( get_ancestors( $term->term_id, 'category' ) );
+	$ids[] = $term->term_id;
+	$out   = array();
+	foreach ( $ids as $id ) {
+		$t = get_term( $id, 'category' );
+		if ( $t && ! is_wp_error( $t ) && 'uncategorized' !== $t->slug ) {
+			$out[] = array( 'url' => get_term_link( $t ), 'text' => $t->name, 'id' => $t->term_id );
+		}
+	}
+	return $out;
+}
 
 function betnero_breadcrumb_html( $light ) {
 	if ( is_front_page() || ! function_exists( 'yoast_breadcrumb' ) ) {
