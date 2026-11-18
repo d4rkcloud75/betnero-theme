@@ -34,6 +34,16 @@ add_filter( 'wpseo_breadcrumb_links', function ( $links ) {
 			array_splice( $links, 1, 0, $chain );
 		}
 	}
+	// 0.9.7: etichette brevi, cosi' il breadcrumb non ripete il titolo intero (H1) della pagina.
+	foreach ( $links as $i => $l ) {
+		if ( 0 === $i ) {
+			continue;
+		}
+		$short = betnero_breadcrumb_short_label( $l );
+		if ( $short ) {
+			$links[ $i ]['text'] = $short;
+		}
+	}
 	// Ultima voce in italiano dove Yoast usa i suoi testi predefiniti in inglese.
 	$last = count( $links ) - 1;
 	if ( $last > 0 ) {
@@ -81,10 +91,53 @@ function betnero_breadcrumb_category_chain( $post_id ) {
 	foreach ( $ids as $id ) {
 		$t = get_term( $id, 'category' );
 		if ( $t && ! is_wp_error( $t ) && 'uncategorized' !== $t->slug ) {
-			$out[] = array( 'url' => get_term_link( $t ), 'text' => $t->name, 'id' => $t->term_id );
+			$out[] = array( 'url' => get_term_link( $t ), 'text' => $t->name, 'term_id' => $t->term_id, 'taxonomy' => 'category' );
 		}
 	}
 	return $out;
+}
+
+/**
+ * Etichetta breve di una voce del breadcrumb:
+ * 1) "Titolo breadcrumb" di Yoast, se compilato nella pagina;
+ * 2) la voce del menu principale che porta a quella pagina (es. "Casino", "Slot");
+ * 3) la prima parte del titolo, prima di " - ", " – ", " | " o ": ".
+ */
+function betnero_breadcrumb_short_label( $link ) {
+	$id = ( isset( $link['id'] ) && ! isset( $link['term_id'] ) && ! isset( $link['term'] ) ) ? (int) $link['id'] : 0;
+	if ( ! $id || ! get_post( $id ) ) {
+		return '';
+	}
+	$bc = trim( (string) get_post_meta( $id, '_yoast_wpseo_bctitle', true ) );
+	if ( '' !== $bc ) {
+		return $bc;
+	}
+	static $menu = null;
+	if ( null === $menu ) {
+		$menu = array();
+		if ( function_exists( 'betnero_menu_items' ) ) {
+			$add = function ( $label, $url ) use ( &$menu ) {
+				$path = untrailingslashit( (string) wp_parse_url( $url, PHP_URL_PATH ) );
+				if ( $path && ! isset( $menu[ $path ] ) ) {
+					$menu[ $path ] = $label;
+				}
+			};
+			foreach ( betnero_menu_items() as $it ) {
+				$add( $it[0], $it[1] );
+				foreach ( (array) $it[2] as $k ) {
+					$add( $k[0], $k[1] );
+				}
+			}
+		}
+	}
+	$path = untrailingslashit( (string) wp_parse_url( get_permalink( $id ), PHP_URL_PATH ) );
+	if ( isset( $menu[ $path ] ) ) {
+		return $menu[ $path ];
+	}
+	$title = html_entity_decode( get_the_title( $id ), ENT_QUOTES, 'UTF-8' );
+	$parts = preg_split( '/\s+[-–—|]\s+|:\s+/u', $title, 2 );
+	$first = trim( $parts[0] );
+	return ( count( $parts ) > 1 && mb_strlen( $first ) >= 8 ) ? $first : '';
 }
 
 function betnero_breadcrumb_html( $light ) {
