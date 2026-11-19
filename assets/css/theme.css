@@ -758,3 +758,8 @@ html:not(.bn-dr-fail) .bn-nav .wp-block-navigation__responsive-container.is-menu
 /* 0.10.1: i sottomenu delle ultime voci si aprono verso sinistra; quelli nascosti non allargano la pagina */
 .bn-header { overflow-x: clip; }
 .bn-nav .wp-block-navigation__container > li:nth-last-child(-n+2) > .wp-block-navigation__submenu-container { left: auto !important; right: 0 !important; }
+/* 0.10.2: sul tablet il podio in alto e' nascosto come sul telefono (resta solo su PC) e il testo usa tutta la larghezza */
+@media (min-width: 782px) and (max-width: 1099px) {
+	.bn-hh-compact .bnp, .bn-hh-compact .bn-hh-cols > .wp-block-column:has(.bnp) { display: none !important; }
+	.bn-hh-compact .bn-hh-cols > .wp-block-column:not(:has(.bnp)) { flex-basis: 100% !important; }
+}
