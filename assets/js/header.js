@@ -112,18 +112,32 @@
 	var dr, panel, lastFocus, drawerHtml = '';
 
 	// 0.10.0: il pannello arriva dal server dopo il caricamento della pagina (non e' nel codice HTML).
-	function loadDrawer() {
+	var loading = null;
+	function loadDrawer( cb ) {
+		cb = typeof cb === 'function' ? cb : function () {};
 		var src = document.getElementById( 'bn-drawer-src' );
-		if ( ! src || ! window.fetch ) {
+		if ( drawerHtml ) {
+			cb( true );
 			return;
 		}
-		fetch( src.getAttribute( 'data-src' ), { credentials: 'omit' } ).then( function ( r ) {
-			return r.ok ? r.json() : null;
-		} ).then( function ( d ) {
-			if ( d && d.html ) {
-				drawerHtml = d.html;
-			}
-		} ).catch( function () {} );
+		if ( ! src || ! window.fetch ) {
+			cb( false );
+			return;
+		}
+		if ( ! loading ) {
+			loading = fetch( src.getAttribute( 'data-src' ), { credentials: 'omit' } ).then( function ( r ) {
+				return r.ok ? r.json() : null;
+			} ).then( function ( d ) {
+				if ( d && d.html ) {
+					drawerHtml = d.html;
+				}
+				return !! drawerHtml;
+			} ).catch( function () {
+				loading = null;
+				return false;
+			} );
+		}
+		loading.then( cb );
 	}
 
 	// 0.9.3: il pannello arriva in un <template> (fuori dal contenuto della pagina, cosi'
@@ -253,6 +267,21 @@
 		// Se il pannello non e' ancora arrivato, si apre il menu standard di WordPress.
 		document.addEventListener( 'click', function ( e ) {
 			var b = e.target.closest( '.bn-nav .wp-block-navigation__responsive-container-open' );
+			if ( b && ! dr && ! drawerHtml && ! document.documentElement.classList.contains( 'bn-dr-fail' ) ) {
+				// Pannello non ancora arrivato: lo scarico ora e lo apro; se non arriva, si apre il menu standard.
+				e.preventDefault();
+				e.stopPropagation();
+				e.stopImmediatePropagation();
+				loadDrawer( function ( ok ) {
+					if ( ok ) {
+						open();
+					} else {
+						document.documentElement.classList.add( 'bn-dr-fail' );
+						b.click();
+					}
+				} );
+				return;
+			}
 			if ( b && ( dr || drawerHtml ) ) {
 				e.preventDefault();
 				e.stopPropagation();
@@ -267,7 +296,7 @@
 		} );
 		// Se lo schermo si allarga (rotazione del telefono), il pannello si chiude.
 		window.addEventListener( 'resize', function () {
-			if ( window.innerWidth >= 600 ) {
+			if ( window.innerWidth >= 1100 ) {
 				close();
 			}
 		} );

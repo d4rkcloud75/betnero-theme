@@ -326,8 +326,8 @@
 @media (max-width: 782px) { .admin-bar .wp-site-blocks > header.wp-block-template-part { top: 46px; } }
 .wp-site-blocks > header.wp-block-template-part .bn-header { position: relative; top: auto; }
 
-/* Header mobile: menu a sinistra, logo al centro, cerca a destra; la ricerca si apre sotto l'header */
-@media (max-width: 599px) {
+/* Header mobile e tablet (0.10.1: fino a 1099px): menu a sinistra, logo al centro, cerca a destra; la ricerca si apre sotto l'header */
+@media (max-width: 1099px) {
 	.bn-header > .wp-block-group { display: grid !important; grid-template-columns: 44px 1fr 44px; align-items: center; position: static; }
 	.bn-header .bn-nav { order: 1; justify-self: start; }
 	.bn-header .wp-block-site-logo { order: 2; justify-self: center; }
@@ -608,7 +608,7 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 .bn-dr-foot b { flex: 0 0 26px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--wp--preset--color--navy); color: var(--wp--preset--color--navy); font-size: 9.5px; font-weight: 800; }
 @media (prefers-reduced-motion: reduce) { .bn-dr-panel, .bn-dr-dim { transition: none; } }
 /* Il menu a tutto schermo di WordPress non si apre piu' (lo sostituisce il pannello) */
-.bn-nav .wp-block-navigation__responsive-container.is-menu-open { display: none !important; }
+html:not(.bn-dr-fail) .bn-nav .wp-block-navigation__responsive-container.is-menu-open { display: none !important; }
 
 /* Menu veloce: icone a linea piu' piccole nei colori del logo */
 @media (max-width: 781px) {
@@ -749,3 +749,12 @@ html.bn-dr-lock, html.bn-dr-lock body { overflow: hidden; }
 /* 0.9.8: sottotitolo H2 nella fascia in alto (chiesto da Francesco per Casino e Slot) */
 .bn-hh h2.bn-hh-sub { color: #fff !important; font-size: clamp(17px, 1.6vw, 20px) !important; line-height: 1.35; font-weight: 700; letter-spacing: 0; margin: 0 0 8px !important; opacity: .95; text-transform: none !important; }
 .bn-hh:not(.bn-hh-compact) h2.bn-hh-sub { text-align: center; max-width: 760px; margin-left: auto !important; margin-right: auto !important; }
+
+/* 0.10.1: tablet (600-1099px) con hamburger e pannello, invece del menu desktop su piu' righe */
+@media (min-width: 600px) and (max-width: 1099px) {
+	.bn-nav .wp-block-navigation__responsive-container-open:not(.always-shown) { display: flex !important; }
+	.bn-nav .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) { display: none !important; }
+}
+/* 0.10.1: i sottomenu delle ultime voci si aprono verso sinistra; quelli nascosti non allargano la pagina */
+.bn-header { overflow-x: clip; }
+.bn-nav .wp-block-navigation__container > li:nth-last-child(-n+2) > .wp-block-navigation__submenu-container { left: auto !important; right: 0 !important; }
