@@ -763,3 +763,10 @@ html:not(.bn-dr-fail) .bn-nav .wp-block-navigation__responsive-container.is-menu
 	.bn-hh-compact .bnp, .bn-hh-compact .bn-hh-cols > .wp-block-column:has(.bnp) { display: none !important; }
 	.bn-hh-compact .bn-hh-cols > .wp-block-column:not(:has(.bnp)) { flex-basis: 100% !important; }
 }
+
+/* 0.10.4: autore e data di aggiornamento sotto l'H1 delle pagine */
+.bn-byline { margin: 4px 0 14px !important; font-size: 13.5px; line-height: 1.4; color: var(--wp--preset--color--muted); }
+.bn-byline a { color: inherit; font-weight: 700; text-decoration: none; }
+.bn-byline a:hover { text-decoration: underline; }
+.bn-hh .bn-byline, .bn-ph .bn-byline { color: rgba(255,255,255,.88); }
+.bn-hh .bn-byline a, .bn-ph .bn-byline a { color: #fff; }
