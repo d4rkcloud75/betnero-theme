@@ -23,7 +23,7 @@ function betnero_page_byline_html( $post_id ) {
 	if ( $author ) {
 		$parts[] = 'Di <a class="bn-byline-author" href="' . esc_url( get_author_posts_url( $author->ID ) ) . '" rel="author">' . esc_html( $author->display_name ) . '</a>';
 	}
-	$parts[] = 'Aggiornato il <time datetime="' . esc_attr( get_post_modified_time( 'c', true, $post ) ) . '">' . esc_html( get_post_modified_time( 'j F Y', false, $post, true ) ) . '</time>';
+	$parts[] = 'Aggiornato il <time datetime="' . esc_attr( get_post_modified_time( 'c', true, $post ) ) . '">' . esc_html( mb_strtolower( get_post_modified_time( 'j F Y', false, $post, true ) ) ) . '</time>';
 	return '<p class="bn-byline">' . implode( ' <span aria-hidden="true">·</span> ', $parts ) . '</p>';
 }
 
