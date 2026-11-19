@@ -91,7 +91,12 @@ function betnero_breadcrumb_category_chain( $post_id ) {
 	foreach ( $ids as $id ) {
 		$t = get_term( $id, 'category' );
 		if ( $t && ! is_wp_error( $t ) && 'uncategorized' !== $t->slug ) {
-			$out[] = array( 'url' => get_term_link( $t ), 'text' => $t->name, 'term_id' => $t->term_id, 'taxonomy' => 'category' );
+			// 0.10.3: se nella categoria e' compilato il "Titolo breadcrumb" di Yoast, vale quello.
+			$label = '';
+			if ( class_exists( 'WPSEO_Taxonomy_Meta' ) ) {
+				$label = trim( (string) WPSEO_Taxonomy_Meta::get_term_meta( $t, 'category', 'bctitle' ) );
+			}
+			$out[] = array( 'url' => get_term_link( $t ), 'text' => '' !== $label ? $label : $t->name, 'term_id' => $t->term_id, 'taxonomy' => 'category' );
 		}
 	}
 	return $out;
