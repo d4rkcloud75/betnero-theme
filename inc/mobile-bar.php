@@ -64,9 +64,18 @@ add_action( 'wp_footer', function () {
 	$req = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) : '';
 	if ( betnero_mobile_bar_enabled( $req ) ) {
 		echo '<nav class="bn-mbar" aria-label="Menu rapido">';
-		foreach ( betnero_mobile_bar_items() as $it ) {
+		// 0.9.9: una sola voce attiva, quella che corrisponde meglio all'indirizzo (Slot e non anche Casino su /casino/slot-machine.html).
+		$best = -1;
+		$len  = 0;
+		foreach ( betnero_mobile_bar_items() as $n => $it ) {
 			$base = preg_replace( '/\.html$/', '', $it[1] );
-			$cur  = ( '' !== $req && 0 === strpos( $req, $base ) ) ? ' aria-current="page"' : '';
+			if ( '' !== $req && 0 === strpos( $req, $base ) && strlen( $base ) > $len ) {
+				$best = $n;
+				$len  = strlen( $base );
+			}
+		}
+		foreach ( betnero_mobile_bar_items() as $n => $it ) {
+			$cur = ( $n === $best ) ? ' aria-current="page"' : '';
 			echo '<a href="' . esc_url( home_url( $it[1] ) ) . '"' . $cur . '>' . betnero_icon( $it[2], 21 ) . '<span>' . esc_html( $it[0] ) . '</span></a>'; // phpcs:ignore WordPress.Security.EscapeOutput
 		}
 		echo '</nav>';
