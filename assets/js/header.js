@@ -109,7 +109,22 @@
 ( function () {
 	var reduce = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 	var EASE = 'cubic-bezier(.2,.7,.2,1)';
-	var dr, panel, lastFocus;
+	var dr, panel, lastFocus, drawerHtml = '';
+
+	// 0.10.0: il pannello arriva dal server dopo il caricamento della pagina (non e' nel codice HTML).
+	function loadDrawer() {
+		var src = document.getElementById( 'bn-drawer-src' );
+		if ( ! src || ! window.fetch ) {
+			return;
+		}
+		fetch( src.getAttribute( 'data-src' ), { credentials: 'omit' } ).then( function ( r ) {
+			return r.ok ? r.json() : null;
+		} ).then( function ( d ) {
+			if ( d && d.html ) {
+				drawerHtml = d.html;
+			}
+		} ).catch( function () {} );
+	}
 
 	// 0.9.3: il pannello arriva in un <template> (fuori dal contenuto della pagina, cosi'
 	// il menu non risulta ripetuto nel codice) e viene creato solo alla prima apertura.
@@ -119,11 +134,14 @@
 		}
 		dr = document.getElementById( 'bn-drawer' );
 		if ( ! dr ) {
-			var t = document.getElementById( 'bn-drawer-tpl' );
-			if ( ! t || ! t.content ) {
+			if ( ! drawerHtml ) {
 				return false;
 			}
-			document.body.appendChild( t.content.cloneNode( true ) );
+			var box = document.createElement( 'div' );
+			box.innerHTML = drawerHtml;
+			while ( box.firstChild ) {
+				document.body.appendChild( box.firstChild );
+			}
 			dr = document.getElementById( 'bn-drawer' );
 			if ( ! dr ) {
 				return false;
@@ -223,13 +241,19 @@
 	}
 
 	function boot() {
-		if ( ! document.getElementById( 'bn-drawer' ) && ! document.getElementById( 'bn-drawer-tpl' ) ) {
+		if ( ! document.getElementById( 'bn-drawer' ) && ! document.getElementById( 'bn-drawer-src' ) ) {
 			return;
 		}
+		if ( 'requestIdleCallback' in window ) {
+			window.requestIdleCallback( loadDrawer, { timeout: 1000 } );
+		} else {
+			setTimeout( loadDrawer, 500 );
+		}
 		// Il pulsante del menu di WordPress apre il pannello (fase di cattura: prima del menu a tutto schermo).
+		// Se il pannello non e' ancora arrivato, si apre il menu standard di WordPress.
 		document.addEventListener( 'click', function ( e ) {
 			var b = e.target.closest( '.bn-nav .wp-block-navigation__responsive-container-open' );
-			if ( b ) {
+			if ( b && ( dr || drawerHtml ) ) {
 				e.preventDefault();
 				e.stopPropagation();
 				e.stopImmediatePropagation();

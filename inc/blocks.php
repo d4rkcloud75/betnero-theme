@@ -281,7 +281,7 @@ function betnero_render_table( $type, $attributes ) {
 		$h .= '</div>';
 	}
 	$h .= '</div>';
-	$h .= '<p class="bnt-empty" hidden>Nessun operatore corrisponde ai filtri. Rimuovi uno o più filtri.</p>';
+	$h .= '<p class="bnt-empty" hidden></p>';
 	$h .= '<div class="bnt-adm">18+ | Gioca responsabilmente | Solo operatori con concessione ADM</div>';
 	$h .= '</div>';
 	return $h;

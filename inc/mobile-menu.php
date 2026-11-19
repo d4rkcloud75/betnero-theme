@@ -153,13 +153,39 @@ function betnero_mobile_menu_html() {
 		. '</aside></div>';
 }
 
+/*
+ * 0.10.0: il pannello non e' piu' nel codice della pagina (ne' in un <template>): menu e "I migliori del mese"
+ * comparivano cosi' due volte per chi legge il testo dell'HTML. Il telefono lo scarica a parte, in sottofondo,
+ * dopo il caricamento della pagina. Se non arriva, si apre il menu standard di WordPress.
+ */
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'betnero/v1', '/pannello', array(
+		'methods'             => 'GET',
+		'permission_callback' => '__return_true',
+		'callback'            => function () {
+			$html = get_transient( 'betnero_pannello_v1' );
+			if ( false === $html ) {
+				$html = betnero_mobile_menu_html();
+				set_transient( 'betnero_pannello_v1', $html, HOUR_IN_SECONDS );
+			}
+			$res = new WP_REST_Response( array( 'html' => $html ) );
+			$res->header( 'Cache-Control', 'public, max-age=600' );
+			$res->header( 'X-Robots-Tag', 'noindex' );
+			return $res;
+		},
+	) );
+} );
+
+// Il pannello cambia con il menu, gli operatori e il mese: si rigenera quando cambiano.
+foreach ( array( 'save_post', 'deleted_post', 'customize_save_after', 'update_option_bnc_toplist' ) as $hook ) {
+	add_action( $hook, function () {
+		delete_transient( 'betnero_pannello_v1' );
+	} );
+}
+
 add_action( 'wp_footer', function () {
 	if ( is_admin() ) {
 		return;
 	}
-	$html = betnero_mobile_menu_html();
-	if ( $html ) {
-		// Dentro un <template>: non fa parte del contenuto letto dai motori di ricerca, il JavaScript lo crea alla prima apertura.
-		echo '<template id="bn-drawer-tpl">' . $html . '</template>'; // phpcs:ignore WordPress.Security.EscapeOutput
-	}
+	echo '<div id="bn-drawer-src" data-src="' . esc_url( rest_url( 'betnero/v1/pannello' ) ) . '" hidden></div>';
 }, 15 );
