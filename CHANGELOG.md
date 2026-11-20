@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.6
+- Titoli dentro articoli e pagine: ignorati i colori scritti a mano nel testo (soprattutto il giallo del vecchio tema scuro), cosi' tutti i titoli hanno il colore del tema.
+
 ## 0.9.0
 - Breadcrumb allineato alla colonna del contenuto (prima partiva dal bordo della fascia).
 
