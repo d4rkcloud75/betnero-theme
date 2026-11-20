@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.8
+- Testi degli articoli: le parole e i link lunghi tornano a capo su mobile. La regola usava :is() e il minificatore di Velox la rompeva (stesso problema della 0.10.7).
+
 ## 0.10.7
 - La regola dei titoli della 0.10.6 non funzionava con il CSS minificato da Velox (toglie lo spazio prima di :is): selettori riscritti per esteso.
 

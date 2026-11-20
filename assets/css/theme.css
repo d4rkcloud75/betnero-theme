@@ -460,8 +460,9 @@
 .bn-article .bn-author-card h3 { font-size: 19px !important; margin: 0 0 8px !important; }
 .bn-article .bn-author-card p { font-size: 14.5px; }
 /* Indirizzi web lunghi nel testo: vanno a capo invece di allargare la pagina su mobile */
-.wp-block-post-content :is(p, li, td, th, dd, blockquote) { overflow-wrap: break-word; }
-.wp-block-post-content :is(p, li) a { overflow-wrap: anywhere; }
+/* 0.10.8: per esteso, senza :is(), per il minificatore di Velox (vedi 0.10.7). */
+.wp-block-post-content p, .wp-block-post-content li, .wp-block-post-content td, .wp-block-post-content th, .wp-block-post-content dd, .wp-block-post-content blockquote { overflow-wrap: break-word; }
+.wp-block-post-content p a, .wp-block-post-content li a { overflow-wrap: anywhere; }
 
 /* Academy: widget in fondo alle guide (0.7.1) */
 .bn-acad-updated { background: #EEF6FC; border-left: 4px solid var(--wp--preset--color--primary); border-radius: 0 10px 10px 0; padding: 12px 18px; margin: 40px 0 0; }
