@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.7
+- La regola dei titoli della 0.10.6 non funzionava con il CSS minificato da Velox (toglie lo spazio prima di :is): selettori riscritti per esteso.
+
 ## 0.10.6
 - Titoli dentro articoli e pagine: ignorati i colori scritti a mano nel testo (soprattutto il giallo del vecchio tema scuro), cosi' tutti i titoli hanno il colore del tema.
 
