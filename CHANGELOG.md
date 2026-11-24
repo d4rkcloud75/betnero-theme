@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.9
+- Menu in alto, Bonus > Ruota dei Bonus: link diretto a /blog/guida-al-casino/ruota-dei-bonus.html invece del vecchio /blog/ruota-dei-bonus.html che faceva 301 (segnalato da Screaming Frog).
+
 ## 0.10.8
 - Testi degli articoli: le parole e i link lunghi tornano a capo su mobile. La regola usava :is() e il minificatore di Velox la rompeva (stesso problema della 0.10.7).
 
