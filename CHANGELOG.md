@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.12
+- Menu mobile: le voci con HTML nel titolo (es. il colore di "Calcolatore di Rischio") mostrano solo il testo.
+
 ## 0.10.11
 - Menu mobile: stesse voci del menu da PC, quindi anche lui modificabile da Aspetto > Menu (con Betnero Core 0.9.20 o 0.8.5 e successive). Il pannello si rigenera quando si salva il menu.
 

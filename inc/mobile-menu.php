@@ -50,6 +50,18 @@ function betnero_menu_items() {
 	}
 	// 0.10.11: stesse voci del menu da PC (Betnero Core le prende da Aspetto > Menu).
 	$nav = apply_filters( 'render_block_data', $nav, $nav, null );
+	// 0.10.12: nel menu le voci possono avere HTML (es. il colore di "Calcolatore di Rischio"): nel pannello solo testo.
+	$clean = function ( &$blocks ) use ( &$clean ) {
+		foreach ( $blocks as &$x ) {
+			if ( isset( $x['attrs']['label'] ) ) {
+				$x['attrs']['label'] = trim( wp_strip_all_tags( $x['attrs']['label'] ) );
+			}
+			if ( ! empty( $x['innerBlocks'] ) ) {
+				$clean( $x['innerBlocks'] );
+			}
+		}
+	};
+	$clean( $nav['innerBlocks'] );
 	foreach ( $nav['innerBlocks'] as $b ) {
 		$a = $b['attrs'];
 		if ( empty( $a['label'] ) ) {
