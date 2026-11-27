@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BETNERO_THEME_VERSION', '0.10.9' );
+define( 'BETNERO_THEME_VERSION', '0.10.10' );
 
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/academy.php' );
@@ -53,7 +53,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		BETNERO_THEME_VERSION
 	);
 	wp_add_inline_style( 'betnero-theme', betnero_font_face_css() );
-	wp_enqueue_script( 'betnero-header', get_theme_file_uri( 'assets/js/header.js' ), array(), BETNERO_THEME_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	wp_enqueue_script( 'betnero-header', get_theme_file_uri( 'assets/js/header.min.js' ), array(), BETNERO_THEME_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 } );
 
 // Velox Optimizer: lo script dell'header (ricerca e menu mobile) deve rispondere subito al primo clic.

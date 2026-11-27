@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.10
+- Header: menu, ricerca e pannello mobile caricati da assets/js/header.min.js, 5.645 byte invece di 9.606 (-41,2%). Il sorgente header.js resta nel repository.
+
 ## 0.10.9
 - Menu in alto, Bonus > Ruota dei Bonus: link diretto a /blog/guida-al-casino/ruota-dei-bonus.html invece del vecchio /blog/ruota-dei-bonus.html che faceva 301 (segnalato da Screaming Frog).
 
