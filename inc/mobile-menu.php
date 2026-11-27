@@ -48,6 +48,8 @@ function betnero_menu_items() {
 	if ( ! $nav ) {
 		return $items;
 	}
+	// 0.10.11: stesse voci del menu da PC (Betnero Core le prende da Aspetto > Menu).
+	$nav = apply_filters( 'render_block_data', $nav, $nav, null );
 	foreach ( $nav['innerBlocks'] as $b ) {
 		$a = $b['attrs'];
 		if ( empty( $a['label'] ) ) {
@@ -177,7 +179,7 @@ add_action( 'rest_api_init', function () {
 } );
 
 // Il pannello cambia con il menu, gli operatori e il mese: si rigenera quando cambiano.
-foreach ( array( 'save_post', 'deleted_post', 'customize_save_after', 'update_option_bnc_toplist' ) as $hook ) {
+foreach ( array( 'save_post', 'deleted_post', 'customize_save_after', 'update_option_bnc_toplist', 'wp_update_nav_menu' ) as $hook ) {
 	add_action( $hook, function () {
 		delete_transient( 'betnero_pannello_v1' );
 	} );

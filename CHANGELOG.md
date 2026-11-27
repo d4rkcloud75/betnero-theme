@@ -1,5 +1,8 @@
 # Changelog tema Betnero
 
+## 0.10.11
+- Menu mobile: stesse voci del menu da PC, quindi anche lui modificabile da Aspetto > Menu (con Betnero Core 0.9.20 o 0.8.5 e successive). Il pannello si rigenera quando si salva il menu.
+
 ## 0.10.10
 - Header: menu, ricerca e pannello mobile caricati da assets/js/header.min.js, 5.645 byte invece di 9.606 (-41,2%). Il sorgente header.js resta nel repository.
 
